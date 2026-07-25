@@ -1,6 +1,6 @@
 ---
 name: customer-discovery
-description: Use when researching a user problem, designing customer interviews, analyzing interview transcripts, or validating a product problem before market sizing and MVP work.
+description: Use when researching a user problem, designing customer interviews, analyzing transcripts, or building customer evidence in continuous idea-to-MVP work.
 ---
 
 # Customer Discovery
@@ -9,9 +9,13 @@ description: Use when researching a user problem, designing customer interviews,
 
 Establish whether a narrow target segment experiences a frequent, costly, and urgent problem that it already tries to solve.
 
+## AAS Methods
+
+When the configured AAS stack is available, apply `customer-research` for research synthesis and `ab-testing` for disciplined test design. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
+
 ## Inputs
 
-- Approved `venture_intake_packet`
+- Current idea brief and living workbook
 - Supplied interview notes, call transcripts, support tickets, reviews, community posts, job ads, or workflow artifacts
 
 ## Research Sequence
@@ -54,11 +58,11 @@ Weak:
 
 ## Output
 
-Create `problem_validation_packet` with:
+Update the workbook's Opportunity Evidence and related sections with:
 
 - Problem statement and job-to-be-done.
 - Target segment and exclusions.
 - Evidence table with quotes only from supplied sources.
 - Workarounds, pain frequency, costs, triggers, and urgency.
 - Interview/recruiting plan if evidence is insufficient.
-- Assumptions, risks, limits, and a go/revise/pivot/pause/kill recommendation.
+- Assumptions, risks, limits, the smallest next test, and any required external authorization.

@@ -7,7 +7,11 @@ description: Use when designing an MVP architecture, database schema, data model
 
 ## Objective
 
-Design the simplest secure, observable, low-operations architecture that meets the approved MVP charter and functional specification.
+Design the simplest secure, observable, low-operations architecture that meets the current MVP definition and experience specification.
+
+## AAS Methods
+
+When the configured AAS stack is available, apply `architecture`, `documentation-and-adrs`, `security-and-hardening`, and `privacy-by-design`. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
 
 ## Default Architecture Principle
 
@@ -60,4 +64,4 @@ For each material threat include:
 
 ## Output
 
-Create `technical_design_packet`; do not provision resources or claim compliance/certification.
+Update the workbook's Delivery Design, Risk Register, Build Traceability, External Authorization Log, Direction Log, and Work Log; do not provision resources or claim compliance or certification.

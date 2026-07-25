@@ -9,6 +9,10 @@ description: Use when designing pricing, subscriptions, unit economics, revenue 
 
 Determine whether validated demand can support a sustainable, appropriately risk-managed business.
 
+## AAS Methods
+
+When the configured AAS stack is available, apply `startup-business-analyst-business-case`, `pricing`, and `legal-advisor` as business and issue-spotting methods. They do not replace qualified legal, tax, or accounting advice. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
+
 ## Pricing Approach
 
 Start simply. Price against value created or cost avoided, while respecting customer budget and purchasing behavior.
@@ -52,4 +56,4 @@ Legal, tax, privacy, and regulatory points are issue spotting only. Identify whe
 
 ## Output
 
-Create `business_case_packet` with business model, pricing, revenue scenarios, unit economics, cost model, risk register, legal/privacy issue list, operating assumptions, investment limit, and go/no-go rationale.
+Update the workbook's Demand and Viability, Delivery Design, Risk Register, Assumption Map, and Direction Log with the business model, pricing, revenue scenarios, unit economics, cost model, legal/privacy issue list, operating assumptions, viability boundary, and evidence needed to reduce uncertainty.

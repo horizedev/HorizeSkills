@@ -1,21 +1,22 @@
-# Product Pipeline Instructions
+# Idea-to-MVP Operating Instructions
 
-This repository is a human-gated venture operating system. Treat `workflow/pipeline.yaml` and `artifacts/HANDOFFS.md` as the source of truth for stage order and handoff requirements.
+This repository is a continuous, evidence-led operating system for turning founder intent into a testable MVP. Treat `workflow/pipeline.yaml`, `workflow/IDEA_TO_MVP.md`, and the current venture's `artifacts/idea-to-mvp-workbook.md` as the source of truth.
 
 ## Operating Rules
 
-1. Identify the current venture directory and current stage before doing work.
-2. Read every approved upstream artifact listed in the stage's `inputs` before generating output.
-3. Use the matching agent role and skill named in `workflow/pipeline.yaml`.
-4. Create one draft output artifact from the corresponding file in `artifacts/templates/`.
-5. Preserve the YAML frontmatter and complete every required section. Do not replace unknowns with invented facts.
-6. Mark claims as `fact`, `inference`, or `assumption`. Every external factual claim requires a source URL, retrieval date, evidence, and confidence.
-7. End every task with: `artifact produced`, `evidence gaps`, `risks`, `founder decision needed`, and `next agent role`.
-8. Never silently advance a stage. Only the founder can record `go`, `revise`, `pivot`, `pause`, or `kill` at a gate.
+1. Identify the venture directory and read its `input/idea-brief.md`, current workbook, evidence, decisions, and relevant app materials before working.
+2. Treat every founder contribution as meaningful input. Preserve product ideas, feature ideas, visual or interaction preferences, business ideas, constraints, and personal observations; classify each as a commitment, preference, hypothesis, inspiration, or open question rather than discarding it because it is incomplete.
+3. Use the matching role and workstream in `workflow/pipeline.yaml`. Read `aas-stack.json` and `workflow/aas-skill-map.yaml`, then apply the mapped Agentic Awesome Skills playbooks when they are available.
+4. Work continuously across connected workstreams. Internal research, synthesis, specification, design, implementation, review, and revision do not require an approved predecessor or a stage transition.
+5. Update the relevant sections of `artifacts/idea-to-mvp-workbook.md` from `artifacts/templates/idea-to-mvp-workbook.md`. Keep history and rationale instead of replacing earlier founder intent or evidence without explanation.
+6. Preserve YAML frontmatter and complete applicable sections. Do not replace unknowns with invented facts.
+7. Mark claims as `fact`, `inference`, or `assumption`. Every external factual claim requires a source URL, retrieval date, evidence, and confidence.
+8. Use creativity to connect well-supported founder intent into a coherent product direction, but label every new leap as an inference or assumption and state how it could be tested.
+9. End every task with: `workbook updated`, `evidence gaps`, `risks`, `next work`, `external authorization needed`, and `next agent role`.
 
-## Approval and External-Action Policy
+## External-Action Authorization Policy
 
-The following always require explicit founder approval in the current artifact or task:
+The following always require explicit founder authorization in the current task or an authorization record. These are real-world safety boundaries, not internal workflow gates:
 
 - Customer outreach, interviews, surveys, emails, direct messages, or calls
 - Publishing content, social posts, ads, testimonials, pricing, or legal pages
@@ -25,25 +26,25 @@ The following always require explicit founder approval in the current artifact o
 - Sending messages, collecting personal data, or handling sensitive customer information
 - Claiming compliance, legal validity, security certification, or performance results
 
-Drafts are allowed. External side effects are not.
+Drafts, plans, prototypes, and local non-production work are allowed. External side effects are not.
 
 ## Artifact Statuses
 
-- `draft`: generated or revised by an agent; never a valid input to a downstream gated stage unless the founder explicitly allows it.
-- `reviewed`: reviewed but awaiting a decision.
-- `approved`: founder approved; valid upstream input.
-- `rejected`: not usable; do not route downstream.
-- `superseded`: retained for audit history but replaced by a newer approved version.
+- `draft`: incomplete or exploratory work.
+- `active`: current working artifact; it may be used by any internal workstream.
+- `blocked`: work cannot continue without evidence, access, a decision, or an external authorization.
+- `superseded`: retained for history but replaced by a newer current version.
+- `archived`: no longer active.
 
 ## Venture Directory Layout
 
 ```text
 ventures/<venture-slug>/
-  00-input/idea-brief.md
-  artifacts/
+  input/idea-brief.md
+  artifacts/idea-to-mvp-workbook.md
   evidence/
   decisions/
-  app/                 # Separate product source repository after Stage 10 approval
+  app/                 # Product source repository when implementation begins
 ```
 
 ## Research Integrity
@@ -56,6 +57,6 @@ ventures/<venture-slug>/
 ## Delivery Discipline
 
 - Prefer the smallest test or implementation that resolves the highest-risk assumption.
-- Keep scope inside the approved MVP charter. Log requested scope changes instead of implementing them.
-- Use deterministic tools and tests for validation. LLM judgment does not replace a test result, security review, or founder approval.
+- Keep scope inside the current MVP definition. Log requested scope changes, their rationale, and their effect on founder intent before implementing them.
+- Use deterministic tools and tests for validation. LLM judgment does not replace a test result, security review, or an external-action authorization.
 - Do not commit secrets, customer data, access tokens, or production exports.

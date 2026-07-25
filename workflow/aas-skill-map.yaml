@@ -1,0 +1,54 @@
+version: 1
+source:
+  repository: https://github.com/sickn33/agentic-awesome-skills
+  release: 15.4.0
+  catalog_integrity: sha256-728e638a9577ccabc8f79f48547dbb3758e2823a7f73394db9892438f99b978b
+  retrieved_at: 2026-07-25
+  integration: AAS Core manifest in aas-stack.json; exact skill content remains upstream unless materialized through the AAS workflow.
+use:
+  - Read the local role or pipeline skill first for venture-specific constraints and workbook sections.
+  - Use the mapped AAS playbooks for domain methods and implementation practices when the selected AAS stack is available.
+  - Do not claim an AAS skill is installed or executed when only this mapping is present.
+  - Search the full AAS catalog for an additional non-redundant skill when the work falls outside this map; record a catalog gap if none fits.
+workstreams:
+  founder-intent:
+    skills: [brainstorming, idea-refine, product-manager]
+  opportunity-research:
+    skills: [customer-research, competitor-profiling, startup-business-analyst-market-opportunity, market-sizing-analysis, ab-testing, pricing, startup-business-analyst-business-case, legal-advisor]
+  mvp-definition:
+    skills: [product-manager, product-manager-toolkit, ui-ux-pro-max, ux-flow, frontend-design, design-system, product-marketing-context, copywriting, analytics-tracking]
+  delivery-loop:
+    skills: [saas-mvp-launcher, architecture, documentation-and-adrs, security-and-hardening, privacy-by-design, cloud-devops, observability-monitoring-slo-implement, full-stack-orchestration-full-stack-feature, testing-qa, e2e-testing, accessibility-compliance-accessibility-audit, production-code-audit, security-audit]
+  mvp-learning:
+    skills: [analytics-product, growth-engine, customer-support, marketing-plan]
+roles:
+  venture-orchestrator: founder-intent
+  customer-discovery-analyst: opportunity-research
+  market-intelligence-analyst: opportunity-research
+  demand-validation-designer: opportunity-research
+  business-case-analyst: opportunity-research
+  research-evidence-auditor: opportunity-research
+  legal-privacy-risk-spotter: opportunity-research
+  product-manager: mvp-definition
+  ux-specification-designer: mvp-definition
+  brand-gtm-strategist: mvp-definition
+  product-analytics-analyst: [mvp-definition, mvp-learning]
+  solution-architect: delivery-loop
+  platform-operations-engineer: delivery-loop
+  mvp-implementation-engineer: delivery-loop
+  qa-release-engineer: delivery-loop
+  code-quality-reviewer: delivery-loop
+  security-risk-reviewer: delivery-loop
+  launch-growth-operator: mvp-learning
+  support-insights-analyst: mvp-learning
+local_skills:
+  product-pipeline-governance: [brainstorming, idea-refine, product-manager, documentation-and-adrs]
+  customer-discovery: [customer-research, ab-testing]
+  market-opportunity: [competitor-profiling, startup-business-analyst-market-opportunity, market-sizing-analysis]
+  demand-validation: [ab-testing, pricing, customer-research]
+  business-case: [startup-business-analyst-business-case, pricing, legal-advisor]
+  mvp-product-spec: [product-manager, ui-ux-pro-max, ux-flow, analytics-tracking]
+  brand-go-to-market: [product-marketing-context, copywriting, marketing-plan]
+  mvp-technical-design: [architecture, documentation-and-adrs, security-and-hardening, privacy-by-design]
+  secure-mvp-delivery: [saas-mvp-launcher, full-stack-orchestration-full-stack-feature, testing-qa, e2e-testing, cloud-devops]
+  beta-launch-learn: [analytics-product, growth-engine, customer-support]

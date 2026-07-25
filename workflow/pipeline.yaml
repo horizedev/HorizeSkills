@@ -1,161 +1,60 @@
-version: 1
-name: agentic-product-pipeline
-description: Human-gated product pipeline from idea through production MVP and ongoing operation.
+version: 2
+name: continuous-idea-to-mvp
+description: Continuous, founder-directed workstreams that turn raw intent into a tested MVP without internal approval gates.
 global_rules:
   artifact_root: ventures/<venture-slug>/artifacts
   evidence_root: ventures/<venture-slug>/evidence
   decision_root: ventures/<venture-slug>/decisions
-  require_founder_approval_for_gates: true
-  prohibit_unapproved_external_actions: true
+  canonical_artifact: idea-to-mvp-workbook.md
+  workflow_mode: continuous
   require_sources_for_external_claims: true
-stages:
-  - id: "00"
-    name: portfolio-intake
-    role: venture-orchestrator
-    skill: product-pipeline-governance
-    inputs: [idea_brief]
-    output: venture_intake_packet
-    template: artifacts/templates/00-venture-intake-packet.md
-    gate: G0
-    next_on_go: "01"
-    routes: [go, revise, park, kill]
-  - id: "01"
-    name: problem-discovery
-    role: customer-discovery-analyst
-    skill: customer-discovery
-    inputs: [venture_intake_packet]
-    output: problem_validation_packet
-    template: artifacts/templates/01-problem-validation-packet.md
-    gate: G1
-    next_on_go: "02"
-    routes: [go, revise, pivot_to_00, pause, kill]
-  - id: "02"
-    name: market-and-competitive-intelligence
-    role: market-intelligence-analyst
-    skill: market-opportunity
-    inputs: [problem_validation_packet]
-    output: market_opportunity_packet
-    template: artifacts/templates/02-market-opportunity-packet.md
-    gate: G2
-    next_on_go: "03"
-    routes: [go, revise, pivot_to_01, pause, kill]
-  - id: "03"
-    name: demand-and-willingness-to-pay-validation
-    role: demand-validation-designer
-    skill: demand-validation
-    inputs: [market_opportunity_packet]
-    output: demand_validation_packet
-    template: artifacts/templates/03-demand-validation-packet.md
-    gate: G3
-    next_on_go: "04"
-    routes: [go, revise, pivot_to_01, pivot_to_02, pause, kill]
-  - id: "04"
-    name: business-case-and-risk
-    role: business-case-analyst
-    skill: business-case
-    inputs: [demand_validation_packet]
-    output: business_case_packet
-    template: artifacts/templates/04-business-case-packet.md
-    gate: G4
-    next_on_go: "05"
-    routes: [go, revise, pivot_to_02, pause, kill]
-  - id: "05"
-    name: mvp-strategy-and-scope
-    role: product-manager
-    skill: mvp-product-spec
-    inputs: [business_case_packet, demand_validation_packet]
-    output: mvp_charter
-    template: artifacts/templates/05-mvp-charter.md
-    gate: G5
-    next_on_go: "06"
-    routes: [go, revise, pivot_to_03, pause, kill]
-  - id: "06"
-    name: functional-specification-and-ux
-    role: ux-specification-designer
-    skill: mvp-product-spec
-    inputs: [mvp_charter]
-    output: functional_specification_packet
-    template: artifacts/templates/06-functional-specification-packet.md
-    gate: G6
-    next_on_go: "07"
-    routes: [go, revise, pivot_to_05, pause]
-  - id: "07"
-    name: brand-and-go-to-market-foundation
-    role: brand-gtm-strategist
-    skill: brand-go-to-market
-    inputs: [functional_specification_packet, market_opportunity_packet, demand_validation_packet]
-    output: brand_go_to_market_packet
-    template: artifacts/templates/07-brand-go-to-market-packet.md
-    gate: G7
-    next_on_go: "08"
-    routes: [go, revise, pivot_to_02, pivot_to_05, pause]
-  - id: "08"
-    name: technical-architecture-security-and-operations-design
-    role: solution-architect
-    skill: mvp-technical-design
-    inputs: [mvp_charter, functional_specification_packet, brand_go_to_market_packet, business_case_packet]
-    output: technical_design_packet
-    template: artifacts/templates/08-technical-design-packet.md
-    gate: G8
-    next_on_go: "09"
-    routes: [go, revise, pivot_to_05, pivot_to_06, pause]
-  - id: "09"
-    name: environment-governance-and-knowledge-base
-    role: platform-operations-engineer
-    skill: secure-mvp-delivery
-    inputs: [technical_design_packet]
-    output: operations_readiness_packet
-    template: artifacts/templates/09-operations-readiness-packet.md
-    gate: G9
-    next_on_go: "10"
-    routes: [go, revise, pause]
-  - id: "10"
-    name: mvp-implementation
-    role: mvp-implementation-engineer
-    skill: secure-mvp-delivery
-    inputs: [functional_specification_packet, technical_design_packet, operations_readiness_packet]
-    output: release_candidate_packet
-    template: artifacts/templates/10-release-candidate-packet.md
-    gate: G10
-    next_on_go: "11"
-    routes: [go, revise, pivot_to_05, pause]
-  - id: "11"
-    name: production-readiness-and-uat
-    role: qa-release-engineer
-    skill: secure-mvp-delivery
-    inputs: [release_candidate_packet]
-    output: production_readiness_packet
-    template: artifacts/templates/11-production-readiness-packet.md
-    gate: G11
-    next_on_go: "12"
-    routes: [go, revise_to_10, pause]
-  - id: "12"
-    name: private-beta-and-learning
-    role: product-analytics-analyst
-    skill: beta-launch-learn
-    inputs: [production_readiness_packet]
-    output: beta_learning_packet
-    template: artifacts/templates/12-beta-learning-packet.md
-    gate: G12
-    next_on_go: "13"
-    routes: [go, extend_beta, revise_to_05, pivot_to_01, pause, kill]
-  - id: "13"
-    name: public-launch
-    role: launch-growth-operator
-    skill: beta-launch-learn
-    inputs: [beta_learning_packet, brand_go_to_market_packet]
-    output: launch_report_packet
-    template: artifacts/templates/13-launch-report-packet.md
-    gate: G13
-    next_on_go: "14"
-    routes: [go, revise, pause]
-  - id: "14"
-    name: operate-grow-pivot-or-exit
-    role: support-insights-analyst
-    skill: beta-launch-learn
-    inputs: [launch_report_packet]
-    output: operating_review_packet
-    template: artifacts/templates/14-operating-review-packet.md
-    gate: G14
-    next_on_go: "14"
-    routes: [scale, optimize, pivot_to_01, pause, kill, exit]
+  require_founder_authorization_for_external_actions: true
+  aas_stack: aas-stack.json
+  aas_skill_map: workflow/aas-skill-map.yaml
+workstreams:
+  - id: founder-intent
+    name: founder intent and venture framing
+    purpose: Preserve the founder's observations, product ideas, feature ideas, design direction, business goals, constraints, and unknowns as active inputs to the MVP.
+    primary_roles: [venture-orchestrator]
+    local_skills: [product-pipeline-governance]
+    workbook_sections: [Founder Intent, Venture Frame, Direction Log, Assumption Map]
+    aas_capabilities: [brainstorming, idea-refine, product-manager]
+    completion_signals: [founder input is classified, product thesis is explicit, material tensions are visible]
+  - id: opportunity-research
+    name: integrated opportunity research
+    purpose: Combine problem discovery, customer evidence, market and competitor research, demand design, pricing, business viability, and risk issue spotting into one evidence loop.
+    primary_roles: [customer-discovery-analyst, market-intelligence-analyst, demand-validation-designer, business-case-analyst, research-evidence-auditor, legal-privacy-risk-spotter]
+    local_skills: [customer-discovery, market-opportunity, demand-validation, business-case]
+    workbook_sections: [Opportunity Evidence, Market and Alternatives, Demand and Viability, Risk Register]
+    aas_capabilities: [customer-research, competitor-profiling, startup-business-analyst-market-opportunity, ab-testing, pricing, startup-business-analyst-business-case]
+    completion_signals: [highest-risk assumptions have tests, claims are sourced or labeled, a reachable wedge and viable boundary are articulated]
+  - id: mvp-definition
+    name: product, experience, and market definition
+    purpose: Turn founder intent and evidence into a focused MVP, user experience, positioning, measurement plan, and truthful product communication.
+    primary_roles: [product-manager, ux-specification-designer, brand-gtm-strategist, product-analytics-analyst]
+    local_skills: [mvp-product-spec, brand-go-to-market]
+    workbook_sections: [MVP Definition, Experience Specification, Product Narrative, Measurement Plan]
+    aas_capabilities: [product-manager, ui-ux-pro-max, ux-flow, frontend-design, design-system, product-marketing-context, copywriting, analytics-tracking]
+    completion_signals: [core journey is testable, non-goals are explicit, product expression reflects founder direction and evidence]
+  - id: delivery-loop
+    name: integrated MVP delivery
+    purpose: Combine architecture, privacy and security design, operations planning, implementation, code review, and quality verification in one build-and-learn loop.
+    primary_roles: [solution-architect, platform-operations-engineer, mvp-implementation-engineer, qa-release-engineer, code-quality-reviewer, security-risk-reviewer]
+    local_skills: [mvp-technical-design, secure-mvp-delivery]
+    workbook_sections: [Delivery Design, Build Traceability, Verification Evidence, Risk Register]
+    aas_capabilities: [architecture, documentation-and-adrs, security-and-hardening, privacy-by-design, cloud-devops, full-stack-orchestration-full-stack-feature, testing-qa, e2e-testing, accessibility-compliance-accessibility-audit]
+    completion_signals: [in-scope work is traceable, tests report actual results, material risks and known issues are explicit]
+  - id: mvp-learning
+    name: optional controlled learning and post-MVP operations
+    purpose: Plan and analyze authorized beta, launch, support, and growth work without making it a prerequisite for completing an MVP.
+    primary_roles: [product-analytics-analyst, launch-growth-operator, support-insights-analyst]
+    local_skills: [beta-launch-learn]
+    workbook_sections: [Measurement Plan, Verification Evidence, Post-MVP Options]
+    aas_capabilities: [analytics-product, growth-engine, customer-support, marketing-plan]
+    completion_signals: [actual results are separated from plans, next experiment is evidence-led]
+collaboration:
+  - Founder intent remains visible in every workstream and cannot be silently overwritten.
+  - Workstreams may start, pause, loop, and run in parallel as evidence or implementation needs change.
+  - Research changes must update the MVP definition when they affect target user, outcome, scope, pricing, claims, or risk.
+  - Delivery discoveries must update the MVP definition when they affect feasibility, cost, trust, or user experience.
+  - External actions require authorization but do not create an internal workflow gate.

@@ -9,9 +9,13 @@ description: Use when researching competitors, alternatives, market size, target
 
 Find a reachable initial market with a meaningful problem, visible alternatives, a credible wedge, and a path to the first customers.
 
+## AAS Methods
+
+When the configured AAS stack is available, apply `competitor-profiling`, `startup-business-analyst-market-opportunity`, and `market-sizing-analysis`. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
+
 ## Inputs
 
-- Approved `problem_validation_packet`
+- Current idea brief, living workbook, and available problem or customer evidence
 - Source-backed market and competitor research
 
 ## Competitor Method
@@ -58,4 +62,4 @@ A wedge must be material to the target segment, such as:
 
 ## Output
 
-Create `market_opportunity_packet` with a competitor matrix, alternative map, bottom-up sizing, beachhead segment, positioning hypothesis, wedge, channels ranked by reachability, risks, and next demand experiment.
+Update the workbook's Market and Alternatives, Demand and Viability, Assumption Map, Risk Register, and Direction Log with a competitor matrix, alternative map, bottom-up sizing, beachhead segment, positioning hypothesis, wedge, channels ranked by reachability, and next demand test.

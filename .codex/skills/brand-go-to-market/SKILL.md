@@ -9,6 +9,10 @@ description: Use when defining product positioning, naming, brand direction, mes
 
 Translate validated customer insight into clear, differentiated, truthful product communication and a focused route to early users.
 
+## AAS Methods
+
+When the configured AAS stack is available, apply `product-marketing-context`, `copywriting`, and `marketing-plan`. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
+
 ## Positioning Formula
 
 ```text
@@ -52,8 +56,8 @@ Choose one or two channels for the first launch.
 
 ## External-Action Boundary
 
-All naming choices, domains, public copy, price publication, emails, ads, testimonials, community posts, and outreach need founder approval. Create drafts and experiments, not unapproved public artifacts.
+Naming choices, domains, public copy, price publication, emails, ads, testimonials, community posts, and outreach need explicit founder authorization before external use. Create drafts and experiments internally; record proposed actions in the workbook authorization log.
 
 ## Output
 
-Create `brand_go_to_market_packet` with positioning, brand direction, copy drafts, domain/name evidence, launch assets, channel plan, and public-claim risk list.
+Update the workbook's Product Narrative, Founder Intent, Market and Alternatives, Demand and Viability, External Authorization Log, Direction Log, and Work Log with positioning, brand direction, copy drafts, domain or name evidence, channel plan, and public-claim risk list.

@@ -9,6 +9,10 @@ description: Use when defining MVP scope, product strategy, user journeys, UX fl
 
 Specify the smallest secure product that can prove the next business-critical hypothesis and create repeatable user value.
 
+## AAS Methods
+
+When the configured AAS stack is available, apply `product-manager`, `product-manager-toolkit`, `ui-ux-pro-max`, `ux-flow`, and `analytics-tracking` as appropriate. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
+
 ## Scope Filter
 
 For each proposed feature ask:
@@ -63,4 +67,4 @@ For each flow document:
 
 ## Output
 
-Create an `mvp_charter` or `functional_specification_packet` as the stage requires. Do not move unapproved product ideas into build scope.
+Update the workbook's MVP Definition, Experience Specification, Measurement Plan, Scope Changes and Deferred Ideas, and Direction Log. Do not silently move a new product idea into build scope; classify it, explain its trade-off, and record whether it is in scope, deferred, or an assumption to test.

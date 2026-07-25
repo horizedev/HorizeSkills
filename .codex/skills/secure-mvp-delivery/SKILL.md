@@ -7,7 +7,11 @@ description: Use when setting up MVP environments, credentials, runbooks, CI/CD,
 
 ## Objective
 
-Turn approved product and technical designs into a testable, operable release candidate without bypassing security, quality, or founder approvals.
+Turn the current product and technical definition into a testable, operable MVP without bypassing security, quality, or external-action authorization.
+
+## AAS Methods
+
+When the configured AAS stack is available, apply `saas-mvp-launcher`, `full-stack-orchestration-full-stack-feature`, `testing-qa`, `e2e-testing`, `cloud-devops`, `production-code-audit`, and the accessibility or security review skills that fit the work. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
 
 ## Environment Baseline
 
@@ -21,7 +25,7 @@ For each, document ownership, access, secrets, data policy, deployment path, mon
 
 ## Implementation Rules
 
-- Map each code change to an approved user story and acceptance criterion.
+- Map each code change to a current user story and acceptance criterion.
 - Use small changes and reviewable commits/PRs.
 - Treat migrations as reversible or explicitly guarded.
 - Enforce authorization on the server and database layer.
@@ -45,8 +49,8 @@ For each, document ownership, access, secrets, data policy, deployment path, mon
 
 ## Release Discipline
 
-The agent may create a release candidate and test it in approved non-production environments. Production deployment, beta invitations, DNS changes, billing activation, and public launch always require founder approval.
+The agent may create a release candidate and test it in local or authorized non-production environments. Production deployment, beta invitations, DNS changes, billing activation, and public launch always require explicit founder authorization.
 
 ## Output
 
-Create `operations_readiness_packet`, `release_candidate_packet`, or `production_readiness_packet` according to the stage. Report blockers plainly; never substitute an LLM assertion for a test result.
+Update the workbook's Delivery Design, Build Traceability, Verification Evidence, Risk Register, External Authorization Log, Direction Log, and Work Log. Report blockers plainly; never substitute an LLM assertion for a test result.

@@ -1,19 +1,21 @@
-# Agentic Product Pipeline
+# Continuous Idea-to-MVP
 
-A Codex-ready operating system for moving a product from a raw idea to a production-ready MVP, then through beta, launch, learning, and growth.
+A Codex-ready, founder-directed operating system for turning any raw product direction into a coherent, testable MVP.
 
-It is deliberately **human-gated**. Agents research, analyze, draft, design, implement, test, and monitor. The founder approves investment, customer contact, legal commitments, external publishing, paid services, production changes, and launch decisions.
+Start with whatever the founder has: a problem, product concept, feature ideas, visual direction, workflow, business model, customer observation, technical insight, or constraint. The framework preserves those inputs, identifies their confidence, fills gaps through research and creative synthesis, and continuously aligns product definition, design, delivery, and verification around the intended MVP.
 
 ## What Is Included
 
 - `AGENTS.md`: repository-wide operating rules for Codex.
-- `.codex/agents/`: specialist Codex agent roles in TOML.
-- `.codex/skills/`: reusable Codex skills in the standard `SKILL.md` format.
-- `artifacts/templates/`: versioned Markdown handoff deliverables for every stage.
-- `artifacts/HANDOFFS.md`: input, output, quality bar, and gate for every handoff.
-- `workflow/pipeline.yaml`: a machine-readable stage graph for a future LangGraph, Temporal, or n8n integration.
+- `.codex/agents/`: specialist Codex roles mapped to continuous workstreams.
+- `.codex/skills/`: venture-specific local skills plus the AAS integration skill.
+- `aas-stack.json`: a pinned Agentic Awesome Skills v15.4.0 manifest for Codex.
+- `workflow/aas-skill-map.yaml`: exact AAS skill mappings for every role and workstream.
+- `artifacts/templates/idea-to-mvp-workbook.md`: one living artifact for the whole MVP journey.
+- `workflow/pipeline.yaml`: a machine-readable workstream map.
+- `workflow/IDEA_TO_MVP.md`: the operating framework and external-action boundary.
 - `workflow/START_HERE.md`: practical instructions and prompts for running a venture.
-- `mvp-workflow.html`: a no-dependency interactive visual guide from idea to MVP.
+- `mvp-workflow.html`: a no-dependency responsive visual guide.
 
 ## Quick Start
 
@@ -24,38 +26,47 @@ It is deliberately **human-gated**. Agents research, analyze, draft, design, imp
    cp -R ventures/_template ventures/<your-venture-slug>
    ```
 
-3. Fill in `ventures/<your-venture-slug>/00-input/idea-brief.md`.
-4. In Codex, select the `venture-orchestrator` role and ask it to begin Stage 0 using the venture directory.
-5. At each gate, review the output in `ventures/<your-venture-slug>/artifacts/`, record your decision, then explicitly authorize the next stage.
-6. Open `mvp-workflow.html` in a browser for an interactive walkthrough of the flow.
+3. Fill in `ventures/<your-venture-slug>/input/idea-brief.md` with every useful thought, not only a polished problem statement.
+4. Copy `artifacts/templates/idea-to-mvp-workbook.md` into `ventures/<your-venture-slug>/artifacts/idea-to-mvp-workbook.md`.
+5. In Codex, select the `venture-orchestrator` role and ask it to frame the venture and update the workbook.
+6. Use specialist roles continuously as questions arise. They can research, define, design, build, and verify in parallel where useful.
+7. Open `mvp-workflow.html` in a browser for the workstream guide.
 
 ## Suggested First Prompt
 
 ```text
-Act as venture-orchestrator. Start venture <your-venture-slug> at Stage 0.
-Read AGENTS.md, workflow/pipeline.yaml, artifacts/HANDOFFS.md, and the idea brief.
-Create only the required draft handoff artifact from its template. Do not advance a gate,
-contact anyone, create paid resources, or take external action. End with the decision needed
-from the founder and the exact next agent role.
+Act as venture-orchestrator for venture <your-venture-slug>.
+Read AGENTS.md, workflow/pipeline.yaml, workflow/IDEA_TO_MVP.md, aas-stack.json,
+workflow/aas-skill-map.yaml, the idea brief, the current workbook, evidence, decisions,
+and relevant app materials. Preserve every founder contribution as a commitment, preference,
+hypothesis, inspiration, or open question. Use the founder-intent AAS methods when available.
+Update the living workbook with a coherent product thesis, assumptions, evidence gaps, and the
+highest-leverage next work. Do not contact anyone, spend money, publish, provision paid or
+production resources, or take another external action without explicit authorization.
 ```
 
 ## Workflow Model
 
 ```text
-Idea -> Problem -> Market -> Demand -> Business Case -> MVP Scope -> UX Spec
-     -> Brand -> Architecture -> Environment -> Implementation -> Production UAT
-     -> Private Beta -> Public Launch -> Learn / Scale / Pivot / Exit
+Founder intent <-> Opportunity research <-> MVP definition
+       ^                    |                    |
+       |                    v                    v
+       +-------------- Delivery and verification
+                            |
+                            v
+                 Optional authorized learning and launch
 ```
 
-The MVP is generated by the completion of Stage 10 and verified in Stage 11. Stages 12-14 operate the launched business.
+The core endpoint is a reviewable, tested MVP package. Controlled beta, public launch, growth, and operations are optional post-MVP loops, not mandatory workflow stages.
 
 ## Important Constraints
 
-- No agent may mark an artifact approved or move a human gate without a founder decision recorded in the artifact.
+- Internal work has no approval gates. Agents may revise research, scope, design, architecture, and implementation continuously while preserving history and rationale.
+- External actions still require explicit founder authorization: outreach, publishing, spending, paid services, domains, credentials, production changes, deployment, personal-data handling, and public legal/security/performance claims.
 - Research claims require source URLs, retrieval dates, direct evidence, and confidence levels.
 - Agents must never invent customer interviews, commitments, market figures, test results, legal advice, or security attestations.
 - Keep product and customer data out of prompts unless the required controls, consent, and redaction are in place.
-- Use a separate product repository for generated application code when the implementation stage begins. Keep this pipeline repository as the control plane and evidence archive.
+- Use a separate product repository for generated application code when useful. Keep this repository as the venture context and evidence archive.
 
 ## Codex Compatibility
 
@@ -67,6 +78,12 @@ This project follows current Codex project-local conventions:
 
 Codex versions can differ in how their UI exposes specialist roles. If a role is not directly selectable, paste its `developer_instructions` into a Codex task or ask the main agent to use that role's file as its operating brief.
 
-## Recommended Production Orchestration
+## Agentic Awesome Skills
 
-For an automated implementation, use LangGraph as the durable, gated control plane, Supabase/Postgres for venture state and artifacts, LangSmith for agent tracing/evaluation, and n8n only for integration triggers, notifications, and scheduling. The included `workflow/pipeline.yaml` is intentionally shaped for that transition.
+This repository integrates [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills) through the pinned `aas-stack.json` and `workflow/aas-skill-map.yaml`. AAS Core is the preferred integration: Codex searches the local catalog and validates the agent-selected manifest before any skill materialization. The map covers founder framing, research, business viability, product and UX definition, architecture, security, delivery, testing, accessibility, analytics, launch, and support.
+
+To materialize the pinned Codex stack, first configure AAS Core through its documented preview flow, review the resulting plan, and only then apply it. The repository itself does not install third-party skills automatically.
+
+## Recommended Automation
+
+If this becomes an automated system, preserve the continuous workbook model. Use workflow automation for reminders, evidence collection, and traceability, not to recreate internal approval gates. Keep explicit authorizations for real-world side effects.

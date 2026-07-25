@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Interactive guide for the agentic product pipeline from idea to MVP."
+      content="A continuous founder-directed guide for turning raw ideas into a testable MVP."
     />
-    <title>Idea to MVP | Agentic Product Pipeline</title>
+    <title>Continuous Idea to MVP</title>
     <style>
       :root {
-        --paper: #f4f0e8;
-        --paper-deep: #e8e1d3;
-        --ink: #162520;
-        --ink-muted: #5c6963;
-        --line: #c9c2b5;
+        --paper: #f5f1e8;
+        --paper-deep: #e7dfd0;
+        --ink: #15241f;
+        --muted: #56645e;
+        --line: #c8c0b3;
         --panel: #fffdf8;
-        --moss: #175d4b;
-        --moss-dark: #103f34;
-        --lime: #c9f05b;
-        --orange: #e66a37;
-        --sky: #a7e1db;
+        --moss: #145b49;
+        --moss-deep: #0e3c32;
+        --lime: #c8ee5d;
+        --sky: #b8e3de;
+        --orange: #e26b3c;
+        --rose: #b64747;
         --blue: #2d6a8d;
-        --rose: #c95450;
-        --shadow: 0 16px 36px rgba(31, 49, 42, 0.12);
-        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        --shadow: 8px 8px 0 rgba(21, 36, 31, 0.13);
+        --serif: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
         --sans:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        --serif: Iowan Old Style, "Palatino Linotype", Palatino, Georgia, serif;
+          Segoe UI, sans-serif;
+        --mono: SFMono-Regular, Consolas, Liberation Mono, monospace;
       }
 
       * {
@@ -44,114 +44,126 @@
         color: var(--ink);
         background:
           radial-gradient(
-            circle at 84% 2%,
-            rgba(201, 240, 91, 0.34),
-            transparent 24rem
+            circle at 90% 4%,
+            rgba(200, 238, 93, 0.4),
+            transparent 23rem
           ),
           radial-gradient(
-            circle at 6% 28%,
-            rgba(167, 225, 219, 0.36),
-            transparent 26rem
+            circle at 4% 34%,
+            rgba(184, 227, 222, 0.45),
+            transparent 29rem
           ),
           var(--paper);
         font-family: var(--sans);
       }
 
-      button,
-      select {
-        font: inherit;
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.18em;
       }
 
-      button {
-        cursor: pointer;
-        border: 0;
+      a:hover {
+        color: var(--moss);
       }
 
       .shell {
-        width: min(1500px, calc(100% - 40px));
+        width: min(1400px, calc(100% - 40px));
         margin: 0 auto;
-        padding: 24px 0 54px;
+        padding: 24px 0 60px;
       }
 
       .topbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 20px;
         border-bottom: 1px solid var(--line);
-        padding: 4px 0 19px;
+        padding-bottom: 18px;
       }
 
       .brand {
         display: flex;
         align-items: center;
         gap: 12px;
-        font-size: 0.82rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .brand-mark {
-        width: 30px;
-        height: 30px;
-        display: grid;
-        place-items: center;
-        color: var(--lime);
-        background: var(--moss-dark);
-        border-radius: 50%;
-        font-family: var(--serif);
-        font-size: 1.15rem;
-      }
-
-      .topbar-note {
-        color: var(--ink-muted);
-        font-family: var(--mono);
-        font-size: 0.72rem;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.4fr) minmax(290px, 0.6fr);
-        gap: 32px;
-        padding: 52px 0 34px;
-      }
-
-      .eyebrow {
-        margin: 0 0 13px;
-        color: var(--moss);
-        font-family: var(--mono);
-        font-size: 0.73rem;
-        font-weight: 800;
+        font-size: 0.75rem;
+        font-weight: 850;
         letter-spacing: 0.11em;
         text-transform: uppercase;
       }
 
-      h1 {
-        max-width: 850px;
-        margin: 0;
+      .brand-mark {
+        display: grid;
+        width: 31px;
+        height: 31px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--lime);
+        background: var(--moss-deep);
         font-family: var(--serif);
-        font-size: clamp(2.7rem, 6vw, 5.5rem);
-        font-weight: 500;
-        letter-spacing: -0.06em;
-        line-height: 0.9;
+        font-size: 1.22rem;
       }
 
-      .hero p:not(.eyebrow) {
-        max-width: 680px;
-        margin: 26px 0 0;
-        color: #36443e;
+      .topbar-note,
+      .eyebrow,
+      .label,
+      .chip,
+      .card-kicker {
+        font-family: var(--mono);
+        font-size: 0.69rem;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .topbar-note {
+        color: var(--muted);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+        gap: 36px;
+        padding: 58px 0 38px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--moss);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 800px;
+        margin-bottom: 0;
+        font-family: var(--serif);
+        font-size: clamp(3rem, 7vw, 6rem);
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        line-height: 0.88;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+        margin: 27px 0 0;
+        color: #35423d;
         font-size: 1.08rem;
-        line-height: 1.65;
+        line-height: 1.67;
       }
 
       .hero-note {
         align-self: end;
-        padding: 22px;
+        padding: 23px;
         border: 1px solid var(--ink);
-        background: var(--moss-dark);
-        color: #eff4e8;
-        box-shadow: 8px 8px 0 var(--orange);
+        color: #f0f5ee;
+        background: var(--moss-deep);
+        box-shadow: 9px 9px 0 var(--orange);
       }
 
       .hero-note strong {
@@ -159,788 +171,639 @@
         margin-bottom: 10px;
         color: var(--lime);
         font-family: var(--mono);
-        font-size: 0.73rem;
-        letter-spacing: 0.08em;
+        font-size: 0.72rem;
+        letter-spacing: 0.09em;
         text-transform: uppercase;
       }
 
       .hero-note p {
         margin: 0;
-        font-size: 0.92rem;
-        line-height: 1.5;
+        font-size: 0.9rem;
+        line-height: 1.55;
       }
 
-      .control-strip {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 15px 17px;
+      .starter {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 17px;
+        align-items: start;
+        margin-bottom: 30px;
+        padding: 18px;
         border: 1px solid var(--ink);
         background: var(--panel);
       }
 
-      .control-copy {
-        display: flex;
-        align-items: center;
-        gap: 13px;
-      }
-
-      .status-light {
-        width: 11px;
-        height: 11px;
-        border-radius: 50%;
-        background: var(--orange);
-        box-shadow: 0 0 0 4px rgba(230, 106, 55, 0.17);
-      }
-
-      .status-light.running {
-        background: var(--moss);
-        box-shadow: 0 0 0 4px rgba(23, 93, 75, 0.16);
-      }
-      .status-light.complete {
-        background: var(--blue);
-        box-shadow: 0 0 0 4px rgba(45, 106, 141, 0.16);
-      }
-
-      .control-copy strong {
-        font-size: 0.92rem;
-      }
-      .control-copy span {
-        color: var(--ink-muted);
-        font-size: 0.82rem;
-      }
-
-      .button-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .button {
-        padding: 9px 12px;
+      .starter-number {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
         border: 1px solid var(--ink);
-        color: var(--ink);
-        background: transparent;
-        font-size: 0.78rem;
-        font-weight: 750;
-      }
-
-      .button:hover {
-        color: var(--panel);
-        background: var(--ink);
-      }
-      .button.primary {
-        border-color: var(--moss);
         color: var(--panel);
         background: var(--moss);
-      }
-      .button.primary:hover {
-        color: var(--ink);
-        background: var(--lime);
-      }
-      .button.warn {
-        border-color: var(--orange);
-        color: #8d3314;
-      }
-      .button.warn:hover {
-        color: var(--panel);
-        background: var(--orange);
+        font-family: var(--serif);
+        font-size: 1.55rem;
       }
 
-      .progress-band {
+      .starter h2 {
+        margin: 1px 0 5px;
+        font-size: 1rem;
+      }
+
+      .starter p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.89rem;
+        line-height: 1.5;
+      }
+
+      .intent-grid {
         display: grid;
-        grid-template-columns: 154px 1fr 154px;
-        gap: 16px;
-        align-items: center;
-        margin: 28px 0 16px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
       }
 
-      .progress-label,
-      .progress-value {
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .progress-value {
-        text-align: right;
-        color: var(--moss);
-      }
-
-      .progress-track {
-        height: 9px;
-        overflow: hidden;
-        border: 1px solid var(--ink);
-        background: var(--paper-deep);
-      }
-
-      .progress-fill {
-        width: 0%;
-        height: 100%;
-        background: repeating-linear-gradient(
-          90deg,
-          var(--moss) 0 18px,
-          var(--lime) 18px 24px
-        );
-        transition: width 280ms ease;
-      }
-
-      .workspace {
-        display: grid;
-        grid-template-columns: minmax(290px, 0.82fr) minmax(0, 1.7fr);
-        gap: 20px;
-        align-items: start;
-      }
-
-      .sidebar {
-        position: sticky;
-        top: 18px;
-        padding: 21px;
+      .intent-card {
+        min-height: 141px;
+        padding: 15px;
         border: 1px solid var(--line);
         background: rgba(255, 253, 248, 0.78);
-        backdrop-filter: blur(10px);
       }
 
-      .sidebar-title {
-        margin: 0 0 14px;
-        font-family: var(--mono);
-        font-size: 0.74rem;
-        font-weight: 800;
-        letter-spacing: 0.09em;
-        text-transform: uppercase;
+      .intent-card:nth-child(1) {
+        border-top: 4px solid var(--moss);
       }
 
-      .sidebar p {
-        margin: 0 0 19px;
-        color: var(--ink-muted);
-        font-size: 0.87rem;
-        line-height: 1.5;
+      .intent-card:nth-child(2) {
+        border-top: 4px solid var(--orange);
       }
 
-      .legend {
-        display: grid;
-        gap: 10px;
-        padding: 15px 0;
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
+      .intent-card:nth-child(3) {
+        border-top: 4px solid var(--blue);
       }
 
-      .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        color: var(--ink-muted);
-        font-size: 0.79rem;
-      }
-      .dot {
-        width: 10px;
-        height: 10px;
-        border: 1px solid var(--ink);
-        border-radius: 50%;
-      }
-      .dot.ready {
-        background: var(--panel);
-      }
-      .dot.active {
-        background: var(--lime);
-      }
-      .dot.done {
-        background: var(--moss);
-      }
-      .dot.revise {
-        background: var(--orange);
+      .intent-card:nth-child(4) {
+        border-top: 4px solid #7c5fbc;
       }
 
-      .route-form {
-        margin-top: 19px;
-      }
-      .route-form label {
-        display: block;
-        margin-bottom: 7px;
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-      }
-      .route-form select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid var(--ink);
-        border-radius: 0;
-        color: var(--ink);
-        background: var(--panel);
-      }
-      .route-form .button {
-        width: 100%;
-        margin-top: 9px;
+      .intent-card:nth-child(5) {
+        border-top: 4px solid var(--rose);
       }
 
-      .guardrail {
-        margin: 18px -5px -5px;
-        padding: 13px;
-        border-left: 3px solid var(--orange);
-        background: #f8eadf;
-        color: #69371f;
-        font-size: 0.78rem;
-        line-height: 1.45;
-      }
-
-      .main-panel {
-        min-width: 0;
-      }
-
-      .workflow-board {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--ink);
-        background: var(--panel);
-        box-shadow: var(--shadow);
-      }
-
-      .workflow-board::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        opacity: 0.4;
-        background-image:
-          linear-gradient(rgba(22, 37, 32, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(22, 37, 32, 0.05) 1px, transparent 1px);
-        background-size: 28px 28px;
-      }
-
-      .board-header,
-      .phase,
-      .detail {
-        position: relative;
-        z-index: 1;
-      }
-
-      .board-header {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 25px 25px 20px;
-        border-bottom: 1px solid var(--ink);
-      }
-
-      .board-header h2 {
-        margin: 0;
-        font-family: var(--serif);
-        font-size: 1.8rem;
-        font-weight: 500;
-        letter-spacing: -0.04em;
-      }
-      .board-header p {
-        max-width: 390px;
-        margin: 0;
-        color: var(--ink-muted);
-        font-size: 0.83rem;
-        line-height: 1.45;
-        text-align: right;
-      }
-
-      .phase {
-        padding: 18px 25px 24px;
-      }
-      .phase + .phase {
-        border-top: 1px dashed var(--line);
-      }
-
-      .phase-head {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 16px;
-        margin-bottom: 12px;
-      }
-      .phase-title {
-        margin: 0;
-        font-family: var(--mono);
-        font-size: 0.71rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      .phase-title span {
-        display: inline-block;
-        margin-right: 8px;
-        color: var(--moss);
-      }
-      .phase-copy {
-        margin: 0;
-        color: var(--ink-muted);
-        font-size: 0.76rem;
-      }
-
-      .stage-row {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(140px, 1fr));
-        gap: 10px;
-      }
-      .stage-row.three {
-        grid-template-columns: repeat(3, minmax(140px, 1fr));
-      }
-
-      .stage-card {
-        position: relative;
-        min-height: 170px;
-        padding: 14px;
-        border: 1px solid var(--line);
-        text-align: left;
-        color: var(--ink);
-        background: rgba(255, 253, 248, 0.91);
-        transition:
-          transform 170ms ease,
-          box-shadow 170ms ease,
-          border-color 170ms ease,
-          background 170ms ease;
-      }
-
-      .stage-card:hover {
-        z-index: 2;
-        border-color: var(--ink);
-        transform: translateY(-3px);
-        box-shadow: 5px 5px 0 rgba(22, 37, 32, 0.19);
-      }
-      .stage-card.selected {
-        border: 2px solid var(--ink);
-        background: #f1f8de;
-        box-shadow: 5px 5px 0 var(--ink);
-      }
-      .stage-card.active {
-        background: #effbd1;
-      }
-      .stage-card.done {
-        color: #eff4e8;
-        border-color: var(--moss-dark);
-        background: var(--moss-dark);
-      }
-      .stage-card.revise {
-        border-color: var(--orange);
-        background: #fff0e9;
-      }
-      .stage-card.locked {
-        opacity: 0.63;
-      }
-
-      .stage-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-      }
-      .stage-number {
-        font-family: var(--mono);
-        font-size: 0.69rem;
-        font-weight: 850;
-        letter-spacing: 0.07em;
-      }
-      .stage-chip {
-        padding: 3px 5px;
-        border: 1px solid currentColor;
-        font-family: var(--mono);
-        font-size: 0.58rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-      .stage-card.done .stage-chip {
-        color: var(--lime);
-      }
-      .stage-card.revise .stage-chip {
-        color: #8d3314;
-      }
-
-      .stage-card h3 {
-        margin: 20px 0 7px;
+      .intent-card h3 {
+        margin: 13px 0 6px;
         font-family: var(--serif);
         font-size: 1.25rem;
         font-weight: 500;
         letter-spacing: -0.035em;
-        line-height: 0.96;
       }
-      .stage-card p {
+
+      .intent-card p {
         margin: 0;
-        font-size: 0.73rem;
-        line-height: 1.4;
-      }
-      .stage-card.done p {
-        color: #bed5c8;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.45;
       }
 
-      .flow-arrow {
+      .principle {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(310px, 0.82fr);
+        gap: 30px;
+        margin: 46px 0;
+        padding: 31px;
+        border: 1px solid var(--ink);
+        background: var(--sky);
+        box-shadow: var(--shadow);
+      }
+
+      .principle h2,
+      .section-heading h2 {
+        margin-bottom: 0;
+        font-family: var(--serif);
+        font-size: clamp(2rem, 4vw, 3.35rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.95;
+      }
+
+      .principle p {
+        max-width: 740px;
+        margin: 17px 0 0;
+        color: #24504a;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .principle ul {
+        display: grid;
+        gap: 11px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .principle li {
+        padding: 11px 12px;
+        border-left: 3px solid var(--moss);
+        background: rgba(255, 253, 248, 0.62);
+        font-size: 0.84rem;
+        line-height: 1.42;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.66fr);
+        gap: 30px;
+        align-items: end;
+        margin: 58px 0 20px;
+      }
+
+      .section-heading p:last-child {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .workstream-map {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+        padding: 18px;
+        border: 1px solid var(--ink);
+        background:
+          linear-gradient(rgba(21, 36, 31, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(21, 36, 31, 0.045) 1px, transparent 1px),
+          var(--panel);
+        background-size: 29px 29px;
+        box-shadow: var(--shadow);
+      }
+
+      .stream {
+        position: relative;
+        min-height: 248px;
+        padding: 18px;
+        border: 1px solid var(--ink);
+        background: rgba(255, 253, 248, 0.96);
+      }
+
+      .stream::before {
         position: absolute;
-        right: -8px;
-        bottom: 17px;
-        z-index: 3;
-        width: 16px;
-        height: 16px;
-        border-top: 1px solid var(--ink-muted);
-        border-right: 1px solid var(--ink-muted);
-        transform: rotate(45deg);
-      }
-
-      .stage-row .stage-card:last-child .flow-arrow {
-        display: none;
-      }
-
-      .mvp-line {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin: 6px 0 20px;
-        color: var(--moss);
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        font-weight: 850;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .mvp-line::before,
-      .mvp-line::after {
+        top: -1px;
+        left: -1px;
+        width: 56px;
+        height: 5px;
         content: "";
-        height: 1px;
-        flex: 1;
         background: var(--moss);
       }
 
-      .detail {
-        margin: 20px;
-        border: 1px solid var(--ink);
-        background: #fbf7ee;
+      .stream.intent {
+        grid-column: span 4;
       }
 
-      .detail-header {
-        display: flex;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 19px 20px;
-        border-bottom: 1px solid var(--line);
+      .stream.research {
+        grid-column: span 4;
       }
 
-      .detail-header h2 {
-        margin: 5px 0 0;
+      .stream.definition {
+        grid-column: span 4;
+      }
+
+      .stream.delivery {
+        grid-column: 2 / span 6;
+      }
+
+      .stream.learning {
+        grid-column: 8 / span 4;
+      }
+
+      .stream.research::before {
+        background: var(--orange);
+      }
+
+      .stream.definition::before {
+        background: var(--blue);
+      }
+
+      .stream.delivery::before {
+        background: #7c5fbc;
+      }
+
+      .stream.learning::before {
+        background: var(--rose);
+      }
+
+      .stream h3 {
+        margin: 13px 0 9px;
         font-family: var(--serif);
-        font-size: 2rem;
+        font-size: 1.62rem;
         font-weight: 500;
         letter-spacing: -0.045em;
-      }
-      .detail-eyebrow {
-        margin: 0;
-        color: var(--moss);
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+        line-height: 0.98;
       }
 
-      .detail-status {
-        align-self: start;
-        padding: 6px 8px;
-        border: 1px solid var(--ink);
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        font-weight: 800;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .detail-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-      .detail-cell {
-        min-height: 135px;
-        padding: 18px 20px;
-        border-bottom: 1px solid var(--line);
-      }
-      .detail-cell:nth-child(odd) {
-        border-right: 1px solid var(--line);
-      }
-      .detail-cell.wide {
-        grid-column: 1 / -1;
-        border-right: 0;
-      }
-      .detail-cell:nth-last-child(-n + 2) {
-        border-bottom: 0;
-      }
-
-      .detail-label {
-        display: block;
-        margin-bottom: 9px;
-        color: var(--ink-muted);
-        font-family: var(--mono);
-        font-size: 0.66rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .detail-value {
-        margin: 0;
-        font-size: 0.91rem;
+      .stream > p:not(.card-kicker) {
+        margin-bottom: 15px;
+        color: var(--muted);
+        font-size: 0.83rem;
         line-height: 1.48;
       }
-      .detail-value strong {
-        color: var(--moss);
-      }
-      .tags {
+
+      .roles {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
       }
-      .tag {
-        padding: 5px 7px;
-        color: var(--moss-dark);
-        border: 1px solid #92aca0;
-        background: #e3eee8;
-        font-family: var(--mono);
-        font-size: 0.67rem;
-      }
-      .artifact {
-        color: var(--blue);
-        font-family: var(--mono);
-        font-size: 0.83rem;
-        font-weight: 800;
+
+      .chip {
+        padding: 5px 6px;
+        border: 1px solid #9eb8ad;
+        color: var(--moss-deep);
+        background: #e2eee8;
+        font-size: 0.58rem;
       }
 
-      .prompt-area {
-        margin-top: 20px;
-        padding: 20px;
-        color: #e9f1e9;
-        background: var(--moss-dark);
+      .stream.research .chip {
+        border-color: #e5b39e;
+        color: #7b351d;
+        background: #fff0e9;
       }
 
-      .prompt-area header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 12px;
-      }
-      .prompt-area h3 {
-        margin: 0;
-        color: var(--lime);
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .prompt-area pre {
-        overflow-x: auto;
-        margin: 0;
-        white-space: pre-wrap;
-        color: #eff4e8;
-        font-family: var(--mono);
-        font-size: 0.76rem;
-        line-height: 1.55;
-      }
-      .copy-button {
-        padding: 6px 8px;
-        border: 1px solid #d7e8db;
-        color: #eff4e8;
-        background: transparent;
-        font-family: var(--mono);
-        font-size: 0.67rem;
-      }
-      .copy-button:hover {
-        color: var(--moss-dark);
-        background: var(--lime);
+      .stream.definition .chip {
+        border-color: #a5c2d3;
+        color: #1b536e;
+        background: #e9f4f9;
       }
 
-      .action-deck {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        margin-top: 20px;
-        padding: 18px 20px;
-        border: 1px solid var(--ink);
-        background: var(--sky);
+      .stream.delivery .chip {
+        border-color: #b8aad6;
+        color: #503a7d;
+        background: #f2edf9;
       }
 
-      .action-deck h3 {
-        margin: 0 0 5px;
-        font-size: 0.95rem;
-      }
-      .action-deck p {
-        margin: 0;
-        color: #264f4a;
-        font-size: 0.79rem;
-        line-height: 1.4;
-      }
-      .action-deck .button-row {
-        justify-content: flex-end;
+      .stream.learning .chip {
+        border-color: #d8a7a7;
+        color: #7d2929;
+        background: #fcecec;
       }
 
-      .activity {
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid var(--line);
-      }
-
-      .activity h2 {
-        margin: 0 0 11px;
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        letter-spacing: 0.09em;
-        text-transform: uppercase;
-      }
-      .activity-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-      .activity-item {
-        padding: 13px;
-        border-top: 2px solid var(--moss);
-        background: rgba(255, 253, 248, 0.7);
-      }
-      .activity-item time {
-        display: block;
-        margin-bottom: 5px;
-        color: var(--ink-muted);
-        font-family: var(--mono);
-        font-size: 0.65rem;
-      }
-      .activity-item p {
-        margin: 0;
-        font-size: 0.77rem;
+      .loop-note {
+        grid-column: 1 / -1;
+        margin: 2px 0 0;
+        padding: 11px 13px;
+        border: 1px dashed var(--moss);
+        color: var(--moss-deep);
+        background: rgba(200, 238, 93, 0.25);
+        font-size: 0.82rem;
         line-height: 1.45;
       }
 
-      .mvp-marker {
+      .loop-note strong {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .mvp-package {
         display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 16px;
-        margin-top: 20px;
-        padding: 20px;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.88fr);
+        gap: 26px;
+        margin: 45px 0;
+        padding: 27px;
         border: 1px solid var(--moss);
-        color: #eff4e8;
+        color: #edf4ef;
         background: var(--moss);
       }
 
-      .mvp-marker h2 {
-        margin: 5px 0 4px;
+      .mvp-package .eyebrow {
         color: var(--lime);
+      }
+
+      .mvp-package h2 {
+        margin-bottom: 0;
+        color: var(--lime);
+        font-family: var(--serif);
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.95;
+      }
+
+      .mvp-package p {
+        margin: 16px 0 0;
+        color: #d0e2d6;
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .package-list {
+        display: grid;
+        gap: 8px;
+        align-content: start;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .package-list li {
+        padding: 10px 11px;
+        border: 1px solid rgba(237, 244, 239, 0.36);
+        font-size: 0.82rem;
+        line-height: 1.4;
+      }
+
+      .authorization {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+        margin: 48px 0;
+        padding: 22px;
+        border: 1px solid #9f361e;
+        background: #fff0e9;
+      }
+
+      .authorization-mark {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border: 1px solid #9f361e;
+        color: #fff7f1;
+        background: var(--orange);
+        font-family: var(--serif);
+        font-size: 1.5rem;
+      }
+
+      .authorization h2 {
+        margin: 0;
+        color: #72301e;
         font-family: var(--serif);
         font-size: 1.75rem;
         font-weight: 500;
         letter-spacing: -0.04em;
       }
-      .mvp-marker p {
-        max-width: 690px;
-        margin: 0;
-        color: #d3e4d8;
-        font-size: 0.87rem;
-        line-height: 1.5;
+
+      .authorization p {
+        margin: 7px 0 0;
+        color: #6e412f;
+        font-size: 0.88rem;
+        line-height: 1.55;
       }
-      .mvp-marker .tag {
-        align-self: start;
-        color: var(--moss-dark);
-        border-color: var(--lime);
-        background: var(--lime);
+
+      .authorization ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .authorization li {
+        padding: 5px 7px;
+        border: 1px solid #d6a591;
+        color: #743822;
+        background: rgba(255, 253, 248, 0.7);
+        font-family: var(--mono);
+        font-size: 0.63rem;
+      }
+
+      .aas {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+        gap: 22px;
+        padding: 25px;
+        border: 1px solid var(--ink);
+        background: var(--panel);
+      }
+
+      .aas h2 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: -0.045em;
+      }
+
+      .aas p {
+        margin: 13px 0 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.52;
+      }
+
+      .aas-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .aas-row {
+        padding: 11px;
+        border: 1px solid var(--line);
+        background: #fbf7ee;
+      }
+
+      .aas-row strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--moss);
+        font-family: var(--mono);
+        font-size: 0.66rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .aas-row span {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.66rem;
+        line-height: 1.45;
+      }
+
+      .guide-details {
+        margin-top: 32px;
+      }
+
+      details {
+        border-top: 1px solid var(--line);
+      }
+
+      details:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+
+      summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px 2px;
+        cursor: pointer;
+        font-family: var(--serif);
+        font-size: 1.35rem;
+        letter-spacing: -0.025em;
+      }
+
+      summary::after {
+        content: "+";
+        color: var(--moss);
+        font-family: var(--mono);
+        font-size: 1.1rem;
+      }
+
+      details[open] summary::after {
+        content: "-";
+      }
+
+      .details-content {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 22px;
+        padding: 0 2px 22px;
+      }
+
+      .details-content p,
+      .details-content li {
+        color: var(--muted);
+        font-size: 0.87rem;
+        line-height: 1.52;
+      }
+
+      .details-content p {
+        margin-bottom: 0;
+      }
+
+      .details-content ul {
+        display: grid;
+        gap: 7px;
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      code {
+        padding: 0.12em 0.3em;
+        color: var(--moss-deep);
+        background: #e6eee9;
+        font-family: var(--mono);
+        font-size: 0.88em;
       }
 
       .footer-note {
-        margin-top: 28px;
-        color: var(--ink-muted);
-        font-size: 0.75rem;
+        margin: 34px 0 0;
+        color: var(--muted);
+        font-size: 0.76rem;
         line-height: 1.5;
       }
 
       @media (max-width: 1080px) {
-        .workspace {
-          grid-template-columns: 1fr;
+        .intent-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
-        .sidebar {
-          position: static;
+
+        .stream.intent,
+        .stream.research,
+        .stream.definition {
+          grid-column: span 6;
         }
-        .stage-row {
-          grid-template-columns: repeat(2, minmax(140px, 1fr));
+
+        .stream.definition {
+          grid-column: 4 / span 6;
         }
-        .stage-row.three {
-          grid-template-columns: repeat(2, minmax(140px, 1fr));
+
+        .stream.delivery {
+          grid-column: 1 / span 7;
         }
-        .stage-row .stage-card:last-child .flow-arrow {
-          display: block;
-        }
-        .stage-row .stage-card:nth-child(2n) .flow-arrow {
-          display: none;
+
+        .stream.learning {
+          grid-column: 8 / span 5;
         }
       }
 
-      @media (max-width: 700px) {
+      @media (max-width: 760px) {
         .shell {
-          width: min(100% - 24px, 1500px);
-          padding-top: 12px;
+          width: min(100% - 24px, 1400px);
+          padding-top: 13px;
         }
+
         .topbar-note {
           display: none;
         }
+
+        .hero,
+        .principle,
+        .section-heading,
+        .mvp-package,
+        .aas,
+        .details-content {
+          grid-template-columns: 1fr;
+        }
+
         .hero {
+          gap: 25px;
+          padding: 39px 0 30px;
+        }
+
+        .intent-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .intent-card:last-child {
+          grid-column: 1 / -1;
+        }
+
+        .principle {
+          gap: 22px;
+          padding: 22px;
+        }
+
+        .workstream-map {
+          display: grid;
           grid-template-columns: 1fr;
-          padding-top: 36px;
+          padding: 12px;
         }
-        .hero-note {
-          max-width: 440px;
+
+        .stream.intent,
+        .stream.research,
+        .stream.definition,
+        .stream.delivery,
+        .stream.learning,
+        .loop-note {
+          grid-column: auto;
         }
-        .control-strip,
-        .board-header,
-        .detail-header,
-        .action-deck {
-          align-items: flex-start;
-          flex-direction: column;
+
+        .stream {
+          min-height: 0;
         }
-        .progress-band {
-          grid-template-columns: 1fr;
-          gap: 8px;
-        }
-        .progress-value {
-          text-align: left;
-        }
-        .board-header p {
-          text-align: left;
-        }
-        .phase,
-        .board-header {
-          padding-left: 16px;
-          padding-right: 16px;
-        }
-        .stage-row,
-        .stage-row.three {
-          grid-template-columns: 1fr;
-        }
-        .stage-row .stage-card .flow-arrow {
-          display: none;
-        }
-        .detail {
-          margin: 14px;
-        }
-        .detail-grid {
+
+        .aas-grid {
           grid-template-columns: 1fr;
         }
-        .detail-cell:nth-child(odd) {
-          border-right: 0;
-        }
-        .detail-cell:nth-last-child(-n + 2) {
-          border-bottom: 1px solid var(--line);
-        }
-        .detail-cell:last-child {
-          border-bottom: 0;
-        }
-        .activity-list {
+
+        .authorization {
           grid-template-columns: 1fr;
         }
-        .mvp-marker {
+
+        .authorization-mark {
+          width: 39px;
+          height: 39px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        .intent-grid {
           grid-template-columns: 1fr;
+        }
+
+        .intent-card:last-child {
+          grid-column: auto;
+        }
+
+        h1 {
+          font-size: 3.05rem;
         }
       }
     </style>
@@ -949,894 +812,425 @@
     <main class="shell">
       <header class="topbar">
         <div class="brand">
-          <span class="brand-mark">P</span> Product Pipeline / Field Manual
+          <span class="brand-mark">M</span>
+          Continuous Idea to MVP / Field Guide
         </div>
         <div class="topbar-note">
-          Codex agents + founder gates + versioned handoffs
+          Founder intent + evidence + creative synthesis
         </div>
       </header>
 
       <section class="hero" aria-labelledby="page-title">
         <div>
-          <p class="eyebrow">Interactive operating board</p>
-          <h1 id="page-title">
-            Move evidence, not excitement, from idea to MVP.
-          </h1>
-          <p>
-            Each card is a bounded agent assignment. Each gate is a founder
-            decision. The output from one stage is the only approved input to
-            the next, so the product is built on evidence instead of
-            conversational memory.
+          <p class="eyebrow">No internal approval gates</p>
+          <h1 id="page-title">Build the idea the founder actually means.</h1>
+          <p class="hero-copy">
+            Start with a fragment or a fully formed vision. Preserve the
+            founder's product, feature, interaction, visual, business, and
+            technical ideas; then connect them to evidence, creative product
+            thinking, and a focused delivery loop that produces a testable MVP.
           </p>
         </div>
         <aside class="hero-note">
-          <strong>How to use this guide</strong>
+          <strong>The central shift</strong>
           <p>
-            Choose the active stage. Review its required handoff. Ask the
-            assigned Codex role to create the draft artifact. Review the
-            evidence, then simulate the founder decision to advance, revise, or
-            pivot.
+            This is not a one-way stage machine. Research, product definition,
+            design, architecture, implementation, and verification continuously
+            inform each other through one living workbook.
           </p>
         </aside>
       </section>
 
-      <section class="control-strip" aria-label="Demo controls">
-        <div class="control-copy">
-          <span
-            class="status-light"
-            id="status-light"
-            aria-hidden="true"
-          ></span>
+      <section class="starter" aria-label="Starting point">
+        <div class="starter-number">1</div>
+        <div>
+          <h2>Capture the raw signal before refining it.</h2>
+          <p>
+            Use <code>input/idea-brief.md</code> for every useful thought, then
+            maintain <code>artifacts/idea-to-mvp-workbook.md</code> as the
+            shared source of truth.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="intent-title">
+        <div class="section-heading">
           <div>
-            <strong id="status-title">Ready to start a venture</strong>
-            <span id="status-copy"
-              >Select Stage 00 and create the intake packet.</span
-            >
+            <p class="eyebrow">Founder input is product input</p>
+            <h2 id="intent-title">
+              Nothing useful gets thrown away for being unfinished.
+            </h2>
           </div>
-        </div>
-        <div class="button-row">
-          <button class="button primary" type="button" id="start-button">
-            Start at Stage 00
-          </button>
-          <button class="button" type="button" id="reset-button">
-            Reset simulation
-          </button>
-        </div>
-      </section>
-
-      <section class="progress-band" aria-label="MVP delivery progress">
-        <div class="progress-label">MVP delivery route</div>
-        <div
-          class="progress-track"
-          role="progressbar"
-          aria-label="MVP delivery progress"
-          aria-valuemin="0"
-          aria-valuemax="11"
-          aria-valuenow="0"
-        >
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="progress-value" id="progress-value">0 / 11 gates</div>
-      </section>
-
-      <section class="workspace">
-        <aside class="sidebar" aria-label="Operating rules and routing">
-          <h2 class="sidebar-title">The operator's rule</h2>
           <p>
-            Agents may research, synthesize, design, code, and test. The founder
-            retains authority where capital, customers, legal exposure, public
-            claims, and production systems are involved.
+            Classify the idea rather than flattening it. This preserves founder
+            direction while making its confidence and trade-offs explicit.
           </p>
-
-          <div class="legend" aria-label="Stage status legend">
-            <div class="legend-item">
-              <span class="dot ready"></span> Awaiting approved upstream inputs
-            </div>
-            <div class="legend-item">
-              <span class="dot active"></span> Active: agent drafts its handoff
-            </div>
-            <div class="legend-item">
-              <span class="dot done"></span> Founder approved: valid downstream
-              input
-            </div>
-            <div class="legend-item">
-              <span class="dot revise"></span> Revision requested: do not
-              advance
-            </div>
-          </div>
-
-          <form class="route-form" id="pivot-form">
-            <label for="pivot-select">Simulate a deliberate pivot</label>
-            <select
-              id="pivot-select"
-              aria-label="Choose a stage to return to"
-            ></select>
-            <button class="button warn" type="submit">
-              Route back to this stage
-            </button>
-          </form>
-
-          <div class="guardrail">
-            <strong>Hard boundary.</strong> This guide only simulates internal
-            workflow state. Real outreach, payment setup, domains, cloud
-            accounts, production deployment, and launch publication require an
-            explicit founder approval outside the simulation.
-          </div>
-        </aside>
-
-        <div class="main-panel">
-          <section class="workflow-board" aria-labelledby="workflow-title">
-            <header class="board-header">
-              <div>
-                <p class="eyebrow">
-                  One-way evidence flow, with deliberate return routes
-                </p>
-                <h2 id="workflow-title">The MVP route</h2>
-              </div>
-              <p>
-                Click any stage to inspect the agent, skill, input contract,
-                output handoff, founder gate, and exact Codex prompt. The route
-                ends with a production-ready MVP candidate, then moves to
-                verification.
-              </p>
-            </header>
-            <div id="phases"></div>
-            <div class="mvp-line">MVP release candidate generated here</div>
-            <section class="phase" aria-labelledby="verify-title">
-              <div class="phase-head">
-                <h3 class="phase-title" id="verify-title">
-                  <span>04</span> Verify
-                </h3>
-                <p class="phase-copy">
-                  Prove it is safe enough to place in real users' hands.
-                </p>
-              </div>
-              <div class="stage-row three" id="verify-stage-row"></div>
-            </section>
-
-            <section
-              class="detail"
-              aria-live="polite"
-              aria-labelledby="detail-title"
-            >
-              <header class="detail-header">
-                <div>
-                  <p class="detail-eyebrow" id="detail-stage">
-                    Stage 00 / Explore
-                  </p>
-                  <h2 id="detail-title">Portfolio intake</h2>
-                </div>
-                <span class="detail-status" id="detail-status">awaiting</span>
-              </header>
-              <div class="detail-grid">
-                <div class="detail-cell">
-                  <span class="detail-label">Agent and skill</span>
-                  <p class="detail-value">
-                    <strong id="detail-agent"></strong><br /><span
-                      id="detail-skill"
-                    ></span>
-                  </p>
-                </div>
-                <div class="detail-cell">
-                  <span class="detail-label">Founder gate</span>
-                  <p class="detail-value" id="detail-gate"></p>
-                </div>
-                <div class="detail-cell">
-                  <span class="detail-label">Approved inputs</span>
-                  <div class="tags" id="detail-inputs"></div>
-                </div>
-                <div class="detail-cell">
-                  <span class="detail-label">Handoff artifact</span>
-                  <p class="detail-value artifact" id="detail-output"></p>
-                  <p class="detail-value" id="detail-output-note"></p>
-                </div>
-                <div class="detail-cell wide">
-                  <span class="detail-label">Agent brief</span>
-                  <p class="detail-value" id="detail-brief"></p>
-                </div>
-              </div>
-
-              <section class="prompt-area" aria-labelledby="prompt-title">
-                <header>
-                  <h3 id="prompt-title">Run this in Codex</h3>
-                  <button class="copy-button" type="button" id="copy-button">
-                    Copy prompt
-                  </button>
-                </header>
-                <pre id="prompt-text"></pre>
-              </section>
-
-              <section
-                class="action-deck"
-                aria-label="Founder decision controls"
-              >
-                <div>
-                  <h3 id="action-title">Create the draft intake packet</h3>
-                  <p id="action-copy">
-                    The founder reviews the packet before deciding whether to
-                    explore the problem further.
-                  </p>
-                </div>
-                <div class="button-row">
-                  <button class="button warn" type="button" id="revise-button">
-                    Request revision
-                  </button>
-                  <button
-                    class="button primary"
-                    type="button"
-                    id="advance-button"
-                  >
-                    Approve and advance
-                  </button>
-                </div>
-              </section>
-            </section>
-          </section>
-
-          <section
-            class="mvp-marker"
-            id="mvp-marker"
-            hidden
-            aria-label="MVP generated message"
-          >
-            <div>
-              <p class="detail-eyebrow">Stage 10 completion</p>
-              <h2>MVP release candidate generated.</h2>
-              <p>
-                The next gate is not a marketing launch. It is production UAT:
-                verify authentication, authorization, core workflow, billing
-                where applicable, monitoring, backups, support, and rollback
-                before inviting a beta cohort.
-              </p>
-            </div>
-            <span class="tag">Do not skip verification</span>
-          </section>
-
-          <section class="activity" aria-labelledby="activity-title">
-            <h2 id="activity-title">Decision trace</h2>
-            <div class="activity-list" id="activity-list"></div>
-          </section>
         </div>
+        <div class="intent-grid">
+          <article class="intent-card">
+            <p class="card-kicker">Non-negotiable</p>
+            <h3>Commitment</h3>
+            <p>
+              A desired outcome, audience, constraint, or principle the MVP must
+              honor.
+            </p>
+          </article>
+          <article class="intent-card">
+            <p class="card-kicker">Direction</p>
+            <h3>Preference</h3>
+            <p>
+              A feature, workflow, visual reference, or model worth protecting
+              unless evidence changes the trade-off.
+            </p>
+          </article>
+          <article class="intent-card">
+            <p class="card-kicker">Belief to test</p>
+            <h3>Hypothesis</h3>
+            <p>
+              A claim about customers, value, demand, economics, or feasibility
+              that needs evidence.
+            </p>
+          </article>
+          <article class="intent-card">
+            <p class="card-kicker">Creative seed</p>
+            <h3>Inspiration</h3>
+            <p>
+              A reference or spark that can create a more distinctive product
+              direction.
+            </p>
+          </article>
+          <article class="intent-card">
+            <p class="card-kicker">Unknown</p>
+            <h3>Open question</h3>
+            <p>
+              A choice or gap that should become a decision, research task, or
+              smallest credible test.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="principle" aria-labelledby="principle-title">
+        <div>
+          <p class="eyebrow">Operating principle</p>
+          <h2 id="principle-title">
+            Creativity completes the idea. Evidence keeps it honest.
+          </h2>
+          <p>
+            Agents may make well-reasoned product leaps to connect founder
+            intent into a complete business and product direction. Each leap is
+            recorded as an inference or assumption, tied to its rationale, and
+            given a way to test or revise it.
+          </p>
+        </div>
+        <ul>
+          <li>Preserve intent and record why a material direction changes.</li>
+          <li>
+            Let research revise scope, UX, positioning, architecture, and
+            delivery immediately.
+          </li>
+          <li>
+            Keep actual evidence distinct from plans, estimates, and agent
+            reasoning.
+          </li>
+          <li>
+            Use the smallest next test or implementation slice that resolves the
+            highest-risk uncertainty.
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="workstreams-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Five connected workstreams</p>
+            <h2 id="workstreams-title">
+              Work moves where it creates the most learning.
+            </h2>
+          </div>
+          <p>
+            These are connected lenses, not locked stages. A delivery discovery
+            can change scope; research can change interaction design; a new
+            founder idea can reshape the product thesis.
+          </p>
+        </div>
+
+        <div class="workstream-map">
+          <article class="stream intent">
+            <p class="card-kicker">Anchor</p>
+            <h3>Founder intent and venture frame</h3>
+            <p>
+              Capture raw input, constraints, product thesis, assumptions, and
+              trade-offs.
+            </p>
+            <div class="roles">
+              <span class="chip">venture-orchestrator</span>
+              <span class="chip">brainstorming</span>
+              <span class="chip">idea-refine</span>
+            </div>
+          </article>
+
+          <article class="stream research">
+            <p class="card-kicker">Evidence loop</p>
+            <h3>Integrated opportunity research</h3>
+            <p>
+              Connect customer problem, alternatives, demand, pricing,
+              viability, and risks.
+            </p>
+            <div class="roles">
+              <span class="chip">customer discovery</span>
+              <span class="chip">market intelligence</span>
+              <span class="chip">demand validation</span>
+              <span class="chip">business case</span>
+            </div>
+          </article>
+
+          <article class="stream definition">
+            <p class="card-kicker">Product expression</p>
+            <h3>MVP, experience, and narrative</h3>
+            <p>
+              Define scope, flows, visual language, messaging, and measurement
+              together.
+            </p>
+            <div class="roles">
+              <span class="chip">product manager</span>
+              <span class="chip">UX specification</span>
+              <span class="chip">brand + GTM</span>
+              <span class="chip">analytics</span>
+            </div>
+          </article>
+
+          <article class="stream delivery">
+            <p class="card-kicker">Build and prove</p>
+            <h3>Integrated MVP delivery</h3>
+            <p>
+              Architecture, privacy, security, operations, implementation,
+              review, and testing in one loop.
+            </p>
+            <div class="roles">
+              <span class="chip">solution architect</span>
+              <span class="chip">operations</span>
+              <span class="chip">implementation</span>
+              <span class="chip">QA + security review</span>
+            </div>
+          </article>
+
+          <article class="stream learning">
+            <p class="card-kicker">Optional after MVP</p>
+            <h3>Authorized learning and growth</h3>
+            <p>
+              Plan or analyze controlled beta, launch, support, and growth only
+              when appropriate.
+            </p>
+            <div class="roles">
+              <span class="chip">product analytics</span>
+              <span class="chip">launch + growth</span>
+              <span class="chip">support insights</span>
+            </div>
+          </article>
+
+          <p class="loop-note">
+            <strong>Continuous feedback:</strong> Any meaningful discovery
+            updates the affected workbook sections, Direction Log, risk
+            register, and next work. There is no internal gate to cross.
+          </p>
+        </div>
+      </section>
+
+      <section class="mvp-package" aria-labelledby="mvp-package-title">
+        <div>
+          <p class="eyebrow">Core endpoint</p>
+          <h2 id="mvp-package-title">
+            A tested MVP package, not a forced launch.
+          </h2>
+          <p>
+            The workflow reaches its core outcome when the product is coherent,
+            traceable, and tested enough for a deliberate next decision. Beta,
+            public launch, and operations can follow, but they do not block
+            internal MVP work.
+          </p>
+        </div>
+        <ul class="package-list">
+          <li>Founder intent and product thesis remain visible.</li>
+          <li>Evidence, assumptions, and risks are distinguishable.</li>
+          <li>Scope, journey, narrative, and measurement are explicit.</li>
+          <li>
+            Architecture, build traceability, and actual test evidence are
+            recorded.
+          </li>
+          <li>Known issues and required external authorizations are clear.</li>
+        </ul>
+      </section>
+
+      <aside class="authorization" aria-labelledby="authorization-title">
+        <div class="authorization-mark">!</div>
+        <div>
+          <h2 id="authorization-title">
+            Authorization protects real-world effects, not internal progress.
+          </h2>
+          <p>
+            Internal research, synthesis, design, code, review, and revision
+            proceed continuously. Explicit founder authorization is required
+            only before an action affects people, money, systems, data, or
+            public claims outside the workspace.
+          </p>
+          <ul>
+            <li>outreach and interviews</li>
+            <li>publishing and public claims</li>
+            <li>purchases, domains, and paid services</li>
+            <li>credentials, DNS, and production changes</li>
+            <li>personal or sensitive data handling</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="aas" aria-labelledby="aas-title">
+        <div>
+          <p class="eyebrow">Reusable domain methods</p>
+          <h2 id="aas-title">
+            Every workstream draws from Agentic Awesome Skills.
+          </h2>
+          <p>
+            The selected AAS stack is pinned in <code>aas-stack.json</code> and
+            mapped in <code>workflow/aas-skill-map.yaml</code>. Local venture
+            skills add founder-intent, evidence, and authorization rules around
+            those upstream playbooks.
+          </p>
+        </div>
+        <div class="aas-grid">
+          <div class="aas-row">
+            <strong>Frame</strong>
+            <span>brainstorming · idea-refine · product-manager</span>
+          </div>
+          <div class="aas-row">
+            <strong>Research</strong>
+            <span
+              >customer-research · competitor-profiling · pricing ·
+              ab-testing</span
+            >
+          </div>
+          <div class="aas-row">
+            <strong>Define</strong>
+            <span>ui-ux-pro-max · ux-flow · frontend-design · copywriting</span>
+          </div>
+          <div class="aas-row">
+            <strong>Deliver</strong>
+            <span
+              >architecture · security-and-hardening · testing-qa ·
+              e2e-testing</span
+            >
+          </div>
+          <div class="aas-row">
+            <strong>Verify</strong>
+            <span
+              >accessibility audit · production-code-audit ·
+              security-audit</span
+            >
+          </div>
+          <div class="aas-row">
+            <strong>Learn</strong>
+            <span>analytics-product · growth-engine · customer-support</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-details" aria-label="Practical operating guidance">
+        <details open>
+          <summary>What a Codex task should do</summary>
+          <div class="details-content">
+            <p>
+              Read the idea brief, workbook, evidence, decisions, relevant app
+              materials, the matching local skill, and the mapped AAS playbooks.
+              Then choose the highest-leverage unresolved question or delivery
+              slice.
+            </p>
+            <ul>
+              <li>
+                Update relevant workbook sections, not a serial handoff packet.
+              </li>
+              <li>
+                Preserve prior founder direction and explain material changes.
+              </li>
+              <li>Label facts, inferences, and assumptions.</li>
+              <li>Record actual evidence and tests, never imagined results.</li>
+              <li>End with next work and any external authorization needed.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>How changes stay coherent</summary>
+          <div class="details-content">
+            <p>
+              The Direction Log explains what changed and why. The Scope Changes
+              section ensures new ideas stay meaningful without silently
+              expanding the MVP. The Risk Register and Evidence Ledger make
+              uncertainty visible.
+            </p>
+            <ul>
+              <li>
+                Research changes that affect scope, positioning, or risk update
+                the MVP definition.
+              </li>
+              <li>
+                Technical discoveries that affect cost, trust, or feasibility
+                update the product definition.
+              </li>
+              <li>
+                Founder's new ideas enter as durable inputs, then receive a
+                confidence label and next step.
+              </li>
+              <li>
+                Optional launch work remains separate from MVP completion.
+              </li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Where to read the executable rules</summary>
+          <div class="details-content">
+            <p>
+              This visual guide is intentionally static. The repository
+              documents contain the working contract and should remain the
+              source of truth.
+            </p>
+            <ul>
+              <li>
+                <a href="AGENTS.md"><code>AGENTS.md</code></a
+                >: universal operating rules.
+              </li>
+              <li>
+                <a href="workflow/IDEA_TO_MVP.md"
+                  ><code>workflow/IDEA_TO_MVP.md</code></a
+                >: framework and completion package.
+              </li>
+              <li>
+                <a href="workflow/pipeline.yaml"
+                  ><code>workflow/pipeline.yaml</code></a
+                >: machine-readable workstream map.
+              </li>
+              <li>
+                <a href="workflow/aas-skill-map.yaml"
+                  ><code>workflow/aas-skill-map.yaml</code></a
+                >: AAS role and capability mapping.
+              </li>
+              <li>
+                <a href="artifacts/templates/idea-to-mvp-workbook.md"
+                  ><code>idea-to-mvp-workbook.md</code></a
+                >: living artifact template.
+              </li>
+            </ul>
+          </div>
+        </details>
       </section>
 
       <p class="footer-note">
-        This is a local explanatory prototype. The executable contracts live in
-        <code>workflow/pipeline.yaml</code>, <code>artifacts/HANDOFFS.md</code>,
-        the artifact templates, Codex agent roles, and Codex skills in this
-        repository.
+        Local guide for the continuous idea-to-MVP framework. AAS skill
+        selection is source-backed by
+        <a href="https://github.com/sickn33/agentic-awesome-skills"
+          >Agentic Awesome Skills</a
+        >
+        v15.4.0; the local manifest records exact selected IDs.
       </p>
     </main>
-
-    <script>
-      const stages = [
-        {
-          id: "00",
-          phase: "Explore",
-          name: "Portfolio intake",
-          short: "Frame the opportunity and founder constraints.",
-          role: "venture-orchestrator",
-          skill: "product-pipeline-governance",
-          input: ["idea_brief"],
-          output: "venture_intake_packet",
-          gate: "G0: Is this worth a bounded discovery effort?",
-          brief:
-            "Converts a raw observation into a bounded opportunity hypothesis, ranks unknowns, and sets time, budget, and stop limits.",
-          action: "Create the draft intake packet",
-          actionCopy:
-            "Founder chooses explore, park, or kill before discovery work begins.",
-          phaseIndex: 0,
-        },
-        {
-          id: "01",
-          phase: "Explore",
-          name: "Problem discovery",
-          short: "Prove a narrow customer has a painful recurring problem.",
-          role: "customer-discovery-analyst",
-          skill: "customer-discovery",
-          input: ["venture_intake_packet"],
-          output: "problem_validation_packet",
-          gate: "G1: Is the problem evidenced enough to research the market?",
-          brief:
-            "Analyzes real interviews and behavioral evidence, identifies workarounds, costs, urgency, and unresolved discovery gaps.",
-          action: "Approve the problem evidence",
-          actionCopy:
-            "Founder validates the evidence or requests more discovery. No invented interviews or quotes.",
-          phaseIndex: 0,
-        },
-        {
-          id: "02",
-          phase: "Explore",
-          name: "Market intelligence",
-          short:
-            "Map alternatives, reachable segment, wedge, and early channels.",
-          role: "market-intelligence-analyst",
-          skill: "market-opportunity",
-          input: ["problem_validation_packet"],
-          output: "market_opportunity_packet",
-          gate: "G2: Is there a reachable segment and credible wedge?",
-          brief:
-            "Maps direct and indirect alternatives, transparent market sizing, positioning gaps, and the route to the first 100 users.",
-          action: "Approve the market opportunity",
-          actionCopy:
-            "Founder selects the initial segment and differentiation hypothesis to test.",
-          phaseIndex: 0,
-        },
-        {
-          id: "03",
-          phase: "Validate",
-          name: "Demand validation",
-          short: "Test commitment and willingness to pay before building.",
-          role: "demand-validation-designer",
-          skill: "demand-validation",
-          input: ["market_opportunity_packet"],
-          output: "demand_validation_packet",
-          gate: "G3: Is demand strong enough to model a business?",
-          brief:
-            "Designs a low-cost, measurable prototype, concierge, paid-pilot, or pre-sale test and reports only actual commitments.",
-          action: "Approve the demand result",
-          actionCopy:
-            "Founder decides whether the evidence supports continued investment, revision, or a pivot.",
-          phaseIndex: 1,
-        },
-        {
-          id: "04",
-          phase: "Validate",
-          name: "Business case",
-          short: "Price the outcome, model economics, and spot risk.",
-          role: "business-case-analyst",
-          skill: "business-case",
-          input: ["demand_validation_packet"],
-          output: "business_case_packet",
-          gate: "G4: Does the opportunity justify an MVP investment?",
-          brief:
-            "Builds transparent pricing, revenue, cost, margin, runway, privacy, security, and professional-review issue lists.",
-          action: "Approve the MVP investment",
-          actionCopy:
-            "Founder sets the build budget, risk posture, and constraints for the MVP.",
-          phaseIndex: 1,
-        },
-        {
-          id: "05",
-          phase: "Define",
-          name: "MVP charter",
-          short: "Freeze the smallest product that proves the next risk.",
-          role: "product-manager",
-          skill: "mvp-product-spec",
-          input: ["business_case_packet", "demand_validation_packet"],
-          output: "mvp_charter",
-          gate: "G5: Is the MVP scope small, safe, and measurable?",
-          brief:
-            "Defines one user, one core job, one primary journey, one activation event, non-goals, manual operations, and success metrics.",
-          action: "Freeze the MVP scope",
-          actionCopy:
-            "Founder approves scope. New requests become evidence-backed backlog items rather than silent expansion.",
-          phaseIndex: 2,
-        },
-        {
-          id: "06",
-          phase: "Define",
-          name: "Functional UX spec",
-          short:
-            "Turn scope into testable flows, rules, and acceptance criteria.",
-          role: "ux-specification-designer",
-          skill: "mvp-product-spec",
-          input: ["mvp_charter"],
-          output: "functional_specification_packet",
-          gate: "G6: Is the user experience ready to design and build?",
-          brief:
-            "Specifies first value, authentication, roles, errors, analytics, accessibility, responsive behavior, and testable acceptance criteria.",
-          action: "Approve the functional specification",
-          actionCopy:
-            "Founder confirms the workflow solves the approved job without adding scope.",
-          phaseIndex: 2,
-        },
-        {
-          id: "07",
-          phase: "Define",
-          name: "Brand + GTM",
-          short: "Build truthful positioning and a focused early-user route.",
-          role: "brand-gtm-strategist",
-          skill: "brand-go-to-market",
-          input: [
-            "functional_specification_packet",
-            "market_opportunity_packet",
-            "demand_validation_packet",
-          ],
-          output: "brand_go_to_market_packet",
-          gate: "G7: Are name, message, and launch foundations ready?",
-          brief:
-            "Creates positioning, brand direction, draft public assets, claim controls, and one or two measurable launch channels.",
-          action: "Approve brand and public messaging",
-          actionCopy:
-            "Founder approves any name, pricing, public claim, domain, or launch asset before it is used externally.",
-          phaseIndex: 2,
-        },
-        {
-          id: "08",
-          phase: "Build",
-          name: "Technical design",
-          short: "Choose the fewest secure components that satisfy the MVP.",
-          role: "solution-architect",
-          skill: "mvp-technical-design",
-          input: [
-            "mvp_charter",
-            "functional_specification_packet",
-            "brand_go_to_market_packet",
-            "business_case_packet",
-          ],
-          output: "technical_design_packet",
-          gate: "G8: Is the architecture safe, operable, and within budget?",
-          brief:
-            "Defines the data model, authorization, managed stack, threat model, environments, observability, backups, interfaces, and cost model.",
-          action: "Approve architecture and security baseline",
-          actionCopy:
-            "Founder approves vendor choices, costs, controls, and residual risk before accounts or resources are provisioned.",
-          phaseIndex: 3,
-        },
-        {
-          id: "09",
-          phase: "Build",
-          name: "Operations setup",
-          short:
-            "Prepare environments, access, runbooks, and delivery controls.",
-          role: "platform-operations-engineer",
-          skill: "secure-mvp-delivery",
-          input: ["technical_design_packet"],
-          output: "operations_readiness_packet",
-          gate: "G9: Are controlled implementation environments authorized?",
-          brief:
-            "Prepares access governance, secret handling, CI/CD, support, monitoring, recovery, and runbooks without exposing credentials.",
-          action: "Authorize controlled environment setup",
-          actionCopy:
-            "Founder authorizes accounts, credentials, paid resources, domains, and production access as needed.",
-          phaseIndex: 3,
-        },
-        {
-          id: "10",
-          phase: "Build",
-          name: "MVP implementation",
-          short:
-            "Build only the approved product, tests, and release evidence.",
-          role: "mvp-implementation-engineer",
-          skill: "secure-mvp-delivery",
-          input: [
-            "functional_specification_packet",
-            "technical_design_packet",
-            "operations_readiness_packet",
-          ],
-          output: "release_candidate_packet",
-          gate: "G10: Is the MVP release candidate ready for production UAT?",
-          brief:
-            "Implements approved scope in a separate application repository, maps code to acceptance criteria, runs tests, and documents rollback and known issues.",
-          action: "Generate the MVP release candidate",
-          actionCopy:
-            "Founder reviews implementation evidence and authorizes production UAT. This creates the MVP candidate, not a public launch.",
-          phaseIndex: 3,
-          mvp: true,
-        },
-        {
-          id: "11",
-          phase: "Verify",
-          name: "Production UAT",
-          short:
-            "Verify core journeys, isolation, payments, monitoring, and recovery.",
-          role: "qa-release-engineer",
-          skill: "secure-mvp-delivery",
-          input: ["release_candidate_packet"],
-          output: "production_readiness_packet",
-          gate: "G11: Is the MVP safe enough for a controlled private beta?",
-          brief:
-            "Runs traceable happy-path and failure-path checks; records real defects, release risks, monitoring, backups, support, and go/no-go evidence.",
-          action: "Authorize private-beta readiness",
-          actionCopy:
-            "Founder decides whether a tightly controlled beta is safe. No agent self-approves a production launch.",
-          phaseIndex: 4,
-        },
-        {
-          id: "12",
-          phase: "Verify",
-          name: "Private beta",
-          short: "Measure activation, retention, value, support, and friction.",
-          role: "product-analytics-analyst",
-          skill: "beta-launch-learn",
-          input: ["production_readiness_packet"],
-          output: "beta_learning_packet",
-          gate: "G12: Is there enough value evidence for public launch?",
-          brief:
-            "Analyzes actual cohort data and feedback, identifies activation blockers, repeated value, support burden, and smallest next iteration.",
-          action: "Review beta learning",
-          actionCopy:
-            "Founder may launch, extend beta, revise, pivot, pause, or stop based on actual cohort evidence.",
-          phaseIndex: 4,
-        },
-        {
-          id: "13",
-          phase: "Verify",
-          name: "Public launch",
-          short: "Launch through one or two measurable channels.",
-          role: "launch-growth-operator",
-          skill: "beta-launch-learn",
-          input: ["beta_learning_packet", "brand_go_to_market_packet"],
-          output: "launch_report_packet",
-          gate: "G13: Which evidence-backed route receives the next investment?",
-          brief:
-            "Plans and measures approved launch activity, channel outcomes, support demand, incidents, and the next 30-day experiment.",
-          action: "Move into ongoing operations",
-          actionCopy:
-            "Founder selects the post-launch growth or optimization priorities.",
-          phaseIndex: 4,
-        },
-      ];
-
-      const phaseDefinitions = [
-        {
-          index: 0,
-          label: "01",
-          title: "Explore",
-          copy: "Find a real problem before falling in love with a solution.",
-        },
-        {
-          index: 1,
-          label: "02",
-          title: "Validate",
-          copy: "Test commercial commitment before engineering a product.",
-        },
-        {
-          index: 2,
-          label: "03",
-          title: "Define",
-          copy: "Turn evidence into a small product and a coherent market promise.",
-        },
-        {
-          index: 3,
-          label: "04",
-          title: "Build",
-          copy: "Design safe foundations, then produce a testable MVP candidate.",
-        },
-      ];
-
-      const storageKey = "agentic-product-pipeline-demo-v1";
-      const defaultState = {
-        current: 0,
-        selected: 0,
-        statuses: {},
-        activity: [],
-      };
-      let state = loadState();
-
-      function loadState() {
-        try {
-          const saved = JSON.parse(localStorage.getItem(storageKey));
-          return saved && typeof saved.current === "number"
-            ? { ...defaultState, ...saved }
-            : { ...defaultState };
-        } catch {
-          return { ...defaultState };
-        }
-      }
-
-      function persist() {
-        localStorage.setItem(storageKey, JSON.stringify(state));
-      }
-
-      function stageStatus(index) {
-        if (state.statuses[index] === "revise") return "revise";
-        if (index < state.current) return "done";
-        if (index === state.current) return "active";
-        return "locked";
-      }
-
-      function statusLabel(status) {
-        return (
-          {
-            done: "approved",
-            active: "active",
-            revise: "revision",
-            locked: "awaiting",
-          }[status] || "awaiting"
-        );
-      }
-
-      function renderPhases() {
-        const phases = document.getElementById("phases");
-        phases.innerHTML = "";
-        phaseDefinitions.forEach((phase) => {
-          const items = stages.filter(
-            (stage) => stage.phaseIndex === phase.index,
-          );
-          const section = document.createElement("section");
-          section.className = "phase";
-          section.innerHTML = `
-            <div class="phase-head">
-              <h3 class="phase-title"><span>${phase.label}</span> ${phase.title}</h3>
-              <p class="phase-copy">${phase.copy}</p>
-            </div>
-            <div class="stage-row ${items.length === 3 ? "three" : ""}"></div>
-          `;
-          const row = section.querySelector(".stage-row");
-          items.forEach((stage) => row.appendChild(createStageCard(stage)));
-          phases.appendChild(section);
-        });
-
-        const verifyRow = document.getElementById("verify-stage-row");
-        verifyRow.innerHTML = "";
-        stages
-          .filter((stage) => stage.phaseIndex === 4)
-          .forEach((stage) => verifyRow.appendChild(createStageCard(stage)));
-      }
-
-      function createStageCard(stage) {
-        const index = stages.indexOf(stage);
-        const status = stageStatus(index);
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = `stage-card ${status} ${state.selected === index ? "selected" : ""}`;
-        button.setAttribute(
-          "aria-pressed",
-          state.selected === index ? "true" : "false",
-        );
-        button.innerHTML = `
-          <span class="stage-top">
-            <span class="stage-number">STAGE ${stage.id}</span>
-            <span class="stage-chip">${statusLabel(status)}</span>
-          </span>
-          <h3>${stage.name}</h3>
-          <p>${stage.short}</p>
-          <span class="flow-arrow" aria-hidden="true"></span>
-        `;
-        button.addEventListener("click", () => {
-          state.selected = index;
-          persist();
-          render();
-        });
-        return button;
-      }
-
-      function makePrompt(stage) {
-        return `Act as ${stage.role}. Run Stage ${stage.id}: ${stage.name.toLowerCase()} for venture <venture-slug>.
-
-Read AGENTS.md, workflow/pipeline.yaml, artifacts/HANDOFFS.md, the ${stage.skill} skill, and the approved input artifacts: ${stage.input.join(", ")}.
-
-Create only the draft ${stage.output} from its template in ventures/<venture-slug>/artifacts/. Preserve the artifact envelope. Separate facts, inferences, and assumptions; cite external claims; state evidence gaps, risks, and exit criteria.
-
-Do not advance ${stage.gate.split(":")[0]}, take external action, contact users, spend money, create credentials, publish anything, or deploy. End with the single founder decision needed and the next approved role.`;
-      }
-
-      function renderDetail() {
-        const stage = stages[state.selected];
-        const index = state.selected;
-        const status = stageStatus(index);
-        document.getElementById("detail-stage").textContent =
-          `Stage ${stage.id} / ${stage.phase}`;
-        document.getElementById("detail-title").textContent = stage.name;
-        document.getElementById("detail-status").textContent =
-          statusLabel(status);
-        document.getElementById("detail-agent").textContent = stage.role;
-        document.getElementById("detail-skill").textContent =
-          `Skill: ${stage.skill}`;
-        document.getElementById("detail-gate").textContent = stage.gate;
-        document.getElementById("detail-output").textContent = stage.output;
-        document.getElementById("detail-output-note").textContent =
-          "Versioned handoff. Downstream agents consume it only after founder approval.";
-        document.getElementById("detail-brief").textContent = stage.brief;
-        document.getElementById("prompt-text").textContent = makePrompt(stage);
-        document.getElementById("detail-inputs").innerHTML = stage.input
-          .map((item) => `<span class="tag">${item}</span>`)
-          .join("");
-
-        const advance = document.getElementById("advance-button");
-        const revise = document.getElementById("revise-button");
-        const isCurrent = index === state.current;
-        const isComplete = index < state.current;
-        advance.disabled = !isCurrent || state.current >= stages.length;
-        revise.disabled = !isCurrent || state.current >= stages.length;
-        advance.style.opacity = advance.disabled ? "0.45" : "1";
-        revise.style.opacity = revise.disabled ? "0.45" : "1";
-        advance.textContent = stage.mvp
-          ? "Approve MVP candidate"
-          : stage.id === "11"
-            ? "Approve beta readiness"
-            : "Approve and advance";
-        document.getElementById("action-title").textContent = isComplete
-          ? "This handoff is an approved upstream input"
-          : stage.action;
-        document.getElementById("action-copy").textContent = isComplete
-          ? "To change this stage, deliberately pivot from the sidebar so affected downstream artifacts are revisited."
-          : stage.actionCopy;
-      }
-
-      function renderProgress() {
-        const mvpTotal = 11;
-        const completed = Math.min(state.current, mvpTotal);
-        const percent = (completed / mvpTotal) * 100;
-        const track = document.querySelector(".progress-track");
-        document.getElementById("progress-fill").style.width = `${percent}%`;
-        document.getElementById("progress-value").textContent =
-          `${completed} / ${mvpTotal} gates`;
-        track.setAttribute("aria-valuenow", String(completed));
-
-        const light = document.getElementById("status-light");
-        const title = document.getElementById("status-title");
-        const copy = document.getElementById("status-copy");
-        const startButton = document.getElementById("start-button");
-        light.className = "status-light";
-        if (state.current === 0) {
-          title.textContent = "Ready to start a venture";
-          copy.textContent = "Select Stage 00 and create the intake packet.";
-        } else if (state.current <= 10) {
-          light.classList.add("running");
-          title.textContent = `Working toward MVP: Stage ${stages[state.current].id} is active`;
-          copy.textContent = `${stages[state.current].role} creates ${stages[state.current].output}.`;
-        } else if (state.current === 11) {
-          light.classList.add("complete");
-          title.textContent = "MVP release candidate generated";
-          copy.textContent =
-            "Stage 11 verifies production readiness before private beta.";
-        } else {
-          light.classList.add("complete");
-          title.textContent = "MVP has passed into controlled learning";
-          copy.textContent = "Beta and launch work remain human-gated.";
-        }
-        startButton.disabled = state.current >= stages.length;
-        startButton.style.opacity = startButton.disabled ? "0.45" : "1";
-        startButton.textContent =
-          state.current === 0 ? "Start at Stage 00" : "Open active stage";
-        if (startButton.disabled)
-          startButton.textContent = "Illustrated route complete";
-        document.getElementById("mvp-marker").hidden = state.current < 11;
-      }
-
-      function renderActivity() {
-        const target = document.getElementById("activity-list");
-        const items = state.activity.length
-          ? state.activity.slice(-6).reverse()
-          : [
-              {
-                time: "Next action",
-                text: "Choose Stage 00, prepare the idea brief, and ask venture-orchestrator for a draft intake packet.",
-              },
-            ];
-        target.innerHTML = items
-          .map(
-            (item) =>
-              `<article class="activity-item"><time>${item.time}</time><p>${item.text}</p></article>`,
-          )
-          .join("");
-      }
-
-      function renderPivotOptions() {
-        const select = document.getElementById("pivot-select");
-        select.innerHTML = stages
-          .slice(0, Math.max(state.current + 1, 1))
-          .map(
-            (stage, index) =>
-              `<option value="${index}">Stage ${stage.id}: ${stage.name}</option>`,
-          )
-          .join("");
-        select.value = String(
-          Math.min(state.selected, Math.max(state.current, 0)),
-        );
-      }
-
-      function render() {
-        renderPhases();
-        renderDetail();
-        renderProgress();
-        renderActivity();
-        renderPivotOptions();
-      }
-
-      function now() {
-        return new Intl.DateTimeFormat("en", {
-          month: "short",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-        }).format(new Date());
-      }
-
-      function record(text) {
-        state.activity.push({ time: now(), text });
-        if (state.activity.length > 20) state.activity.shift();
-      }
-
-      document.getElementById("start-button").addEventListener("click", () => {
-        if (state.current >= stages.length) return;
-        state.selected = state.current;
-        record(
-          `Opened Stage ${stages[state.current].id}: ${stages[state.current].name}. Draft ${stages[state.current].output} before requesting a founder decision.`,
-        );
-        persist();
-        render();
-        document
-          .getElementById("detail-title")
-          .scrollIntoView({ behavior: "smooth", block: "center" });
-      });
-
-      document
-        .getElementById("advance-button")
-        .addEventListener("click", () => {
-          if (
-            state.selected !== state.current ||
-            state.current >= stages.length
-          )
-            return;
-          const completed = stages[state.current];
-          state.statuses[state.current] = "done";
-          state.current += 1;
-          state.selected = Math.min(state.current, stages.length - 1);
-          record(
-            `Founder approved ${completed.output} at ${completed.gate.split(":")[0]}. ${state.current < stages.length ? `Routed to Stage ${stages[state.current].id}: ${stages[state.current].name}.` : "Pipeline moved beyond the illustrated launch route."}`,
-          );
-          persist();
-          render();
-        });
-
-      document.getElementById("revise-button").addEventListener("click", () => {
-        if (state.selected !== state.current || state.current >= stages.length)
-          return;
-        const stage = stages[state.current];
-        state.statuses[state.current] = "revise";
-        record(
-          `Founder requested a revision to ${stage.output}. The same role revises evidence and scope; downstream work remains blocked.`,
-        );
-        persist();
-        render();
-      });
-
-      document
-        .getElementById("pivot-form")
-        .addEventListener("submit", (event) => {
-          event.preventDefault();
-          const target = Number(document.getElementById("pivot-select").value);
-          const from = stages[Math.min(state.current, stages.length - 1)];
-          const to = stages[target];
-          state.current = target;
-          state.selected = target;
-          state.statuses = Object.fromEntries(
-            Object.entries(state.statuses).filter(
-              ([index]) => Number(index) < target,
-            ),
-          );
-          record(
-            `Founder deliberately pivoted from ${from.id}: ${from.name} to ${to.id}: ${to.name}. Downstream artifacts must be revisited and superseded as needed.`,
-          );
-          persist();
-          render();
-        });
-
-      document.getElementById("reset-button").addEventListener("click", () => {
-        state = {
-          ...defaultState,
-          activity: [
-            {
-              time: now(),
-              text: "Simulation reset. Begin with the real idea brief and Stage 00 intake packet.",
-            },
-          ],
-        };
-        persist();
-        render();
-      });
-
-      document
-        .getElementById("copy-button")
-        .addEventListener("click", async () => {
-          const button = document.getElementById("copy-button");
-          try {
-            await navigator.clipboard.writeText(
-              document.getElementById("prompt-text").textContent,
-            );
-            button.textContent = "Copied";
-          } catch {
-            button.textContent = "Select prompt";
-          }
-          window.setTimeout(() => {
-            button.textContent = "Copy prompt";
-          }, 1500);
-        });
-
-      render();
-    </script>
   </body>
 </html>

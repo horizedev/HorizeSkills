@@ -6,70 +6,76 @@
 cp -R ventures/_template ventures/<venture-slug>
 ```
 
-Complete the initial idea brief. Use a short, concrete problem from direct experience rather than a solution description.
+Complete the initial idea brief with everything that may matter: observations, problems, product ideas, feature ideas, visual direction, business ideas, constraints, references, and doubts. A polished problem statement is not required.
 
-## 2. Start at the Current Stage
+## 2. Create the Living Workbook
+
+```sh
+cp artifacts/templates/idea-to-mvp-workbook.md \
+  ventures/<venture-slug>/artifacts/idea-to-mvp-workbook.md
+```
+
+The workbook is the current source of truth. It is updated continuously rather than handed from stage to stage.
+
+## 3. Start With Founder Intent
 
 Use the following prompt pattern in Codex:
 
 ```text
-Act as <agent-role>. Run <stage-id> for venture <venture-slug>.
-Read AGENTS.md, workflow/pipeline.yaml, artifacts/HANDOFFS.md, all approved input artifacts,
-and the matching skill. Create the matching output artifact as a draft in the venture artifacts
-directory. Follow its template exactly. Do not take external action or cross the human gate.
+Act as venture-orchestrator for venture <venture-slug>.
+Read AGENTS.md, workflow/pipeline.yaml, workflow/IDEA_TO_MVP.md, aas-stack.json,
+workflow/aas-skill-map.yaml, the idea brief, current workbook, evidence, decisions, and relevant
+app materials. Preserve every founder contribution as a commitment, preference, hypothesis,
+inspiration, or open question. Update the workbook with a product thesis, assumption map,
+evidence gaps, and next work. Do not take an external action without explicit founder authorization.
 ```
 
-## 3. Review the Handoff
+## 4. Work Continuously
 
-For each draft, check:
+Use the workstream that resolves the highest-risk uncertainty or next delivery need:
 
-- Are all mandatory sections present?
-- Is every key claim cited or labeled as an assumption?
-- Are customer evidence and research findings real rather than inferred?
-- Does the output meet the stage's exit criteria?
-- Is the recommended decision supported by evidence?
+- `founder-intent`: venture framing and preservation of founder direction.
+- `opportunity-research`: customer, market, demand, pricing, business viability, and risk evidence.
+- `mvp-definition`: scope, UX flows, product narrative, and measurement plan.
+- `delivery-loop`: architecture, operations, implementation, code review, testing, and verification.
+- `mvp-learning`: optional authorized beta, launch, support, and growth work.
 
-Record a decision in the artifact's `founder_decision` section. Change `status` to `approved` only after you approve it.
+Each role reads the workbook, applies its local skill and mapped AAS playbooks, then updates the relevant sections, Direction Log, and Work Log. Research and delivery can run in parallel and can revise prior work when evidence changes.
 
-## 4. Route Deliberately
+## 5. Review Quality
 
-At every gate choose one outcome:
+After meaningful work, check:
 
-- `go`: approve artifact and start the next listed stage.
-- `revise`: return to the current agent with precise feedback.
-- `pivot`: return to the named earlier stage with a changed segment, problem, wedge, or model.
-- `pause`: keep the venture open but do not run downstream agents.
-- `kill`: archive the venture and document learning.
+- Is founder intent preserved, classified, and still visible?
+- Is every key claim sourced or labeled as an inference or assumption?
+- Are customer evidence and research findings real rather than invented?
+- Does the MVP remain focused on one core outcome and primary journey?
+- Do scope, design, technical, and risk changes have a rationale in the Direction Log?
+- Are actual test results distinct from planned or unexecuted checks?
 
-## 5. Build the MVP
+## 6. External Authorization
 
-After Stage 9 is approved:
+Internal work is ungated. Explicit founder authorization is still required before actions that affect the outside world:
 
-1. Create or attach a separate application repository at `ventures/<venture-slug>/app/`.
-2. Give the `mvp-implementation-engineer` the approved functional specification, technical design, and operations readiness packet.
-3. Require pull requests, tests, a release candidate packet, and a founder approval before production UAT.
-4. Treat Stage 11 production UAT as the final readiness check before inviting beta users.
+- Customer outreach, interviews, surveys, messages, or calls.
+- Publishing, ads, testimonials, pricing, legal pages, or public claims.
+- Purchases, paid services, domains, cloud resources, or paid APIs.
+- Production credentials, DNS, payment settings, production infrastructure, deployment, or production data.
+- Personal or sensitive data collection and handling.
 
-## Stage Prompt Shortcuts
+Record a durable authorization or material decision with `decisions/authorization-and-decision-record-template.md` when useful.
 
-| Stage | Role | Ask For |
-|---|---|---|
-| 00 | `venture-orchestrator` | `venture_intake_packet` |
-| 01 | `customer-discovery-analyst` | `problem_validation_packet` |
-| 02 | `market-intelligence-analyst` | `market_opportunity_packet` |
-| 03 | `demand-validation-designer` | `demand_validation_packet` |
-| 04 | `business-case-analyst` | `business_case_packet` |
-| 05 | `product-manager` | `mvp_charter` |
-| 06 | `ux-specification-designer` | `functional_specification_packet` |
-| 07 | `brand-gtm-strategist` | `brand_go_to_market_packet` |
-| 08 | `solution-architect` | `technical_design_packet` |
-| 09 | `platform-operations-engineer` | `operations_readiness_packet` |
-| 10 | `mvp-implementation-engineer` | `release_candidate_packet` |
-| 11 | `qa-release-engineer` | `production_readiness_packet` |
-| 12 | `product-analytics-analyst` | `beta_learning_packet` |
-| 13 | `launch-growth-operator` | `launch_report_packet` |
-| 14 | `support-insights-analyst` | `operating_review_packet` |
+## Role Prompts
+
+| Workstream           | Roles                                                                                                              | Workbook Focus                            |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| Founder intent       | `venture-orchestrator`                                                                                             | Intent, frame, assumptions, direction log |
+| Opportunity research | `customer-discovery-analyst`, `market-intelligence-analyst`, `demand-validation-designer`, `business-case-analyst` | Evidence, alternatives, viability, risks  |
+| MVP definition       | `product-manager`, `ux-specification-designer`, `brand-gtm-strategist`                                             | Scope, flows, narrative, measurement      |
+| Delivery loop        | `solution-architect`, `platform-operations-engineer`, `mvp-implementation-engineer`, `qa-release-engineer`         | Architecture, build, tests, verification  |
+| Reviews              | `research-evidence-auditor`, `code-quality-reviewer`, `security-risk-reviewer`, `legal-privacy-risk-spotter`       | Independent evidence and risk checks      |
+| Optional learning    | `product-analytics-analyst`, `launch-growth-operator`, `support-insights-analyst`                                  | Authorized learning, launch, support      |
 
 ## Visual Guide
 
-Open `mvp-workflow.html` locally. It illustrates each step, the active agent and skill, the produced handoff, the founder gate, and allowed routes.
+Open `mvp-workflow.html` locally. It illustrates how founder input flows through connected workstreams, how AAS skills support each role, and where explicit external authorization remains necessary.

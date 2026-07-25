@@ -9,6 +9,10 @@ description: Use when designing or analyzing landing-page tests, prototypes, con
 
 Test whether a specific customer will commit something scarce to receive the proposed outcome before building a full MVP.
 
+## AAS Methods
+
+When the configured AAS stack is available, apply `ab-testing`, `pricing`, and `customer-research` to structure experiments and interpret signals. Read `workflow/aas-skill-map.yaml` and record the AAS methods used or any catalog gap in the workbook Work Log.
+
 ## Select the Smallest Credible Test
 
 | Risk | Preferred Test |
@@ -27,7 +31,7 @@ For every experiment define:
 - Hypothesis and uncertainty.
 - Target cohort and exclusion criteria.
 - Offer and value proposition.
-- Channel and approved outreach method.
+- Channel and proposed outreach method.
 - Sample size, timebox, cost cap, and owner.
 - Events and denominator to measure.
 - Success threshold and failure threshold.
@@ -48,11 +52,11 @@ Strongest to weakest:
 
 ## Integrity Rules
 
-- Draft outreach and assets, but do not send or publish without approval.
+- Draft outreach and assets, but do not send or publish without explicit external authorization.
 - Do not call an interest signal “validation.”
 - Report denominators, cohort dates, source/channel, costs, and limitations.
 - Preserve raw results where permitted; do not optimize away failed evidence.
 
 ## Output
 
-Create `demand_validation_packet` with hypothesis, test plan, actual results where supplied, commitment evidence, pricing signals, conversion metrics, objection themes, and a clearly bounded MVP hypothesis.
+Update the workbook's Demand and Viability, Opportunity Evidence, Product Narrative, External Authorization Log, and Assumption Map with the hypothesis, test plan, actual results where supplied, commitment evidence, pricing signals, conversion metrics, objection themes, and MVP implications.
