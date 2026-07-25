@@ -39,6 +39,12 @@
         scroll-behavior: smooth;
       }
 
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
       body {
         margin: 0;
         color: var(--ink);
@@ -110,7 +116,7 @@
       .chip,
       .card-kicker {
         font-family: var(--mono);
-        font-size: 0.69rem;
+        font-size: 0.75rem;
         font-weight: 800;
         letter-spacing: 0.09em;
         text-transform: uppercase;
@@ -182,18 +188,318 @@
         line-height: 1.55;
       }
 
-      .starter {
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 17px;
+        padding: 8px 10px;
+        border: 1px solid var(--lime);
+        color: var(--moss-deep);
+        background: var(--lime);
+        font-family: var(--mono);
+        font-size: 0.76rem;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .hero-cta:hover {
+        color: var(--ink);
+        background: var(--orange);
+        border-color: var(--orange);
+      }
+
+      .runbook {
+        margin: 8px 0 54px;
+        border: 1px solid var(--ink);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .runbook-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(270px, 0.62fr);
+        gap: 28px;
+        padding: 26px;
+        border-bottom: 1px solid var(--ink);
+        background: var(--moss-deep);
+      }
+
+      .runbook-header .eyebrow {
+        color: var(--lime);
+      }
+
+      .runbook-header h2 {
+        margin: 0;
+        color: #f0f5ee;
+        font-family: var(--serif);
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.94;
+      }
+
+      .runbook-header p:last-child {
+        align-self: end;
+        margin: 0;
+        color: #cfdfd2;
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .runbook-note {
+        margin: 0;
+        padding: 13px 26px;
+        border-bottom: 1px solid var(--line);
+        color: #5c311f;
+        background: #fff0e9;
+        font-size: 0.83rem;
+        line-height: 1.48;
+      }
+
+      .runbook-note strong {
+        color: #82371f;
+        font-family: var(--mono);
+        font-size: 0.69rem;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .runbook-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .runbook-step {
+        display: grid;
+        grid-template-columns: 66px minmax(0, 1fr);
+        gap: 17px;
+        padding: 22px 26px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .runbook-step:last-child {
+        border-bottom: 0;
+      }
+
+      .step-number {
+        display: grid;
+        width: 50px;
+        height: 50px;
+        place-items: center;
+        border: 1px solid var(--ink);
+        color: var(--panel);
+        background: var(--moss);
+        font-family: var(--serif);
+        font-size: 1.55rem;
+      }
+
+      .runbook-step:nth-child(3n + 2) .step-number {
+        background: var(--orange);
+      }
+
+      .runbook-step:nth-child(3n) .step-number {
+        background: var(--blue);
+      }
+
+      .step-heading {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .step-heading h3 {
+        margin: 5px 0 0;
+        font-family: var(--serif);
+        font-size: 1.58rem;
+        font-weight: 500;
+        letter-spacing: -0.045em;
+        line-height: 0.98;
+      }
+
+      .step-role {
+        flex: 0 0 auto;
+        margin-top: 2px;
+        padding: 5px 7px;
+        border: 1px solid #9eb8ad;
+        color: var(--moss-deep);
+        background: #e2eee8;
+        font-family: var(--mono);
+        font-size: 0.71rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .step-copy {
+        max-width: 820px;
+        margin: 12px 0 16px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.54;
+      }
+
+      .step-facts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .step-fact {
+        min-height: 70px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        background: #fbf7ee;
+      }
+
+      .step-fact span {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--moss);
+        font-family: var(--mono);
+        font-size: 0.69rem;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .step-fact p {
+        margin: 0;
+        color: #36433e;
+        font-size: 0.78rem;
+        line-height: 1.42;
+      }
+
+      .step-next {
+        margin: 14px 0 0;
+        color: var(--moss-deep);
+        font-size: 0.81rem;
+        line-height: 1.48;
+      }
+
+      .step-next strong {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .runbook-prompt {
+        margin-top: 15px;
+        border: 0;
+      }
+
+      .runbook-prompt summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 10px 12px;
+        border: 1px solid var(--ink);
+        cursor: pointer;
+        color: var(--moss-deep);
+        background: #eaf2e8;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .runbook-prompt summary::after {
+        content: "+";
+        color: var(--moss);
+        font-size: 1rem;
+      }
+
+      .runbook-prompt[open] summary {
+        border-bottom-color: var(--line);
+      }
+
+      .runbook-prompt[open] summary::after {
+        content: "-";
+      }
+
+      .prompt-shell {
+        position: relative;
+        padding: 15px 72px 15px 15px;
+        border: 1px solid var(--ink);
+        border-top: 0;
+        color: #edf4ef;
+        background: var(--moss-deep);
+      }
+
+      .prompt-shell pre {
+        overflow-x: auto;
+        margin: 0;
+        white-space: pre-wrap;
+        font-family: var(--mono);
+        font-size: 0.76rem;
+        line-height: 1.55;
+      }
+
+      .copy-button {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        padding: 7px 8px;
+        border: 1px solid #d5e8da;
+        color: #edf4ef;
+        background: transparent;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .copy-button:hover,
+      .copy-button:focus-visible {
+        color: var(--moss-deep);
+        background: var(--lime);
+        outline: 0;
+      }
+
+      .step-subtasks {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .step-subtask {
+        padding: 12px;
+        border: 1px dashed #a0b6ab;
+        background: rgba(234, 242, 232, 0.45);
+      }
+
+      .step-subtask h4 {
+        margin: 0 0 6px;
+        font-family: var(--mono);
+        font-size: 0.76rem;
+        letter-spacing: 0.05em;
+      }
+
+      .step-subtask p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.44;
+      }
+
+      .start-marker {
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
         gap: 17px;
         align-items: start;
-        margin-bottom: 30px;
+        margin: 0 0 30px;
         padding: 18px;
         border: 1px solid var(--ink);
         background: var(--panel);
       }
 
-      .starter-number {
+      .start-marker-number {
         display: grid;
         width: 44px;
         height: 44px;
@@ -205,12 +511,12 @@
         font-size: 1.55rem;
       }
 
-      .starter h2 {
+      .start-marker h2 {
         margin: 1px 0 5px;
         font-size: 1rem;
       }
 
-      .starter p {
+      .start-marker p {
         margin: 0;
         color: var(--muted);
         font-size: 0.89rem;
@@ -421,7 +727,7 @@
         border: 1px solid #9eb8ad;
         color: var(--moss-deep);
         background: #e2eee8;
-        font-size: 0.58rem;
+        font-size: 0.68rem;
       }
 
       .stream.research .chip {
@@ -628,15 +934,15 @@
         margin-top: 32px;
       }
 
-      details {
+      .guide-details > details {
         border-top: 1px solid var(--line);
       }
 
-      details:last-child {
+      .guide-details > details:last-child {
         border-bottom: 1px solid var(--line);
       }
 
-      summary {
+      .guide-details > details > summary {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -648,14 +954,14 @@
         letter-spacing: -0.025em;
       }
 
-      summary::after {
+      .guide-details > details > summary::after {
         content: "+";
         color: var(--moss);
         font-family: var(--mono);
         font-size: 1.1rem;
       }
 
-      details[open] summary::after {
+      .guide-details > details[open] > summary::after {
         content: "-";
       }
 
@@ -699,6 +1005,17 @@
         line-height: 1.5;
       }
 
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       @media (max-width: 1080px) {
         .intent-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -734,12 +1051,36 @@
         }
 
         .hero,
+        .runbook-header,
         .principle,
         .section-heading,
         .mvp-package,
         .aas,
         .details-content {
           grid-template-columns: 1fr;
+        }
+
+        .runbook-step {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          padding: 19px 16px;
+        }
+
+        .step-heading {
+          align-items: start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .step-facts,
+        .step-subtasks {
+          grid-template-columns: 1fr;
+        }
+
+        .runbook-header,
+        .runbook-note {
+          padding-right: 16px;
+          padding-left: 16px;
         }
 
         .hero {
@@ -838,17 +1179,1020 @@
             design, architecture, implementation, and verification continuously
             inform each other through one living workbook.
           </p>
+          <a class="hero-cta" href="#start-here">Start the 11-step runbook</a>
         </aside>
       </section>
 
-      <section class="starter" aria-label="Starting point">
-        <div class="starter-number">1</div>
-        <div>
-          <h2>Capture the raw signal before refining it.</h2>
+      <section class="runbook" id="start-here" aria-labelledby="runbook-title">
+        <header class="runbook-header">
+          <div>
+            <p class="eyebrow">Your first pass</p>
+            <h2 id="runbook-title">
+              Use this path to get from blank idea to a tested MVP.
+            </h2>
+          </div>
           <p>
-            Use <code>input/idea-brief.md</code> for every useful thought, then
-            maintain <code>artifacts/idea-to-mvp-workbook.md</code> as the
-            shared source of truth.
+            Start at step 1, then use the numbered prompts as a safe default
+            order. After framing, skip forward to whichever role resolves the
+            highest-risk uncertainty. Each role updates the same workbook, and
+            research, product definition, and delivery may overlap when useful.
+          </p>
+        </header>
+        <p class="runbook-note">
+          <strong>How to use this path.</strong> Every prompt contains
+          <code>&lt;venture-slug&gt;</code>; replace it with a lowercase project
+          folder name such as <code>meal-planner</code>. Steps 3-6 form the
+          first research sweep, but you may jump to MVP definition or delivery
+          design earlier when feasibility, scope, or security is the riskiest
+          uncertainty.
+        </p>
+        <ol class="runbook-list">
+          <li class="runbook-step">
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">One-time setup</p>
+                  <h3>Create the venture workspace</h3>
+                </div>
+                <span class="step-role">terminal</span>
+              </div>
+              <p class="step-copy">
+                Run these commands from the repository root. Then open the new
+                idea brief and write every useful thought you have. Do not wait
+                until the idea is polished.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Do now</span>
+                  <p>Create the venture folder and full living workbook.</p>
+                </div>
+                <div class="step-fact">
+                  <span>You edit</span>
+                  <p><code>input/idea-brief.md</code></p>
+                </div>
+                <div class="step-fact">
+                  <span>Result</span>
+                  <p>A blank, ready-to-update venture workspace.</p>
+                </div>
+              </div>
+              <details class="runbook-prompt" open>
+                <summary>Show setup commands</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="setup-command"
+                  >
+                    Copy
+                  </button>
+                  <pre id="setup-command">
+cp -R ventures/_template ventures/&lt;venture-slug&gt;
+cp artifacts/templates/idea-to-mvp-workbook.md \
+  ventures/&lt;venture-slug&gt;/artifacts/idea-to-mvp-workbook.md</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger the venture
+                orchestrator.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Founder intent</p>
+                  <h3>Frame what the founder means to build</h3>
+                </div>
+                <span class="step-role">venture-orchestrator</span>
+              </div>
+              <p class="step-copy">
+                This is always the first Codex task. It turns the raw brief into
+                a product thesis without losing feature ideas, design direction,
+                business goals, constraints, or open questions.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>
+                    Founder Intent, Venture Frame, Assumption Map, Direction
+                    Log.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Look for</span>
+                  <p>
+                    A clear product thesis and the riskiest unanswered
+                    questions.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Do not need</span>
+                  <p>
+                    Customer interviews, market data, or an implementation plan
+                    yet.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt" open>
+                <summary>Copy the framing prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="frame-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="frame-prompt">
+Act as venture-orchestrator for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/pipeline.yaml, workflow/IDEA_TO_MVP.md,
+aas-stack.json, workflow/aas-skill-map.yaml, the venture's input/idea-brief.md,
+artifacts/idea-to-mvp-workbook.md, evidence, decisions, and relevant app materials.
+
+Preserve every founder contribution as a commitment, preference, hypothesis,
+inspiration, or open question. Update the workbook with a coherent product
+thesis, founder constraints, assumption map, evidence gaps, Direction Log entry,
+Work Log entry, and the highest-leverage next work. Use the mapped founder-intent
+AAS methods when available.
+
+Do not take external action. End with workbook updated, evidence gaps, risks,
+next work, external authorization needed, and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger customer discovery,
+                even if the evidence is currently thin.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Problem evidence</p>
+                  <h3>Ground the customer and problem</h3>
+                </div>
+                <span class="step-role">customer-discovery-analyst</span>
+              </div>
+              <p class="step-copy">
+                Give the analyst all existing evidence you have: observations,
+                reviews, forums, support notes, job posts, transcripts, or
+                workflow artifacts. If evidence is missing, the result is a
+                research plan, not invented validation.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>Opportunity Evidence, Assumption Map, Risk Register.</p>
+                </div>
+                <div class="step-fact">
+                  <span>Look for</span>
+                  <p>
+                    A specific user, trigger, job, workaround, and cost of the
+                    problem.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Authorization</span>
+                  <p>
+                    Needed only before contacting people or collecting personal
+                    data.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the customer-discovery prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="customer-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="customer-prompt">
+Act as customer-discovery-analyst for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the customer-discovery and
+agentic-awesome-skills skills, the current idea brief, workbook, evidence,
+decisions, workflow/aas-skill-map.yaml, and relevant product materials.
+
+Use only supplied evidence to clarify the target user, problem, job-to-be-done,
+trigger, current workaround, and pain. Preserve the founder's solution ideas as
+inputs, but label unsupported customer claims as assumptions. If primary
+evidence is missing, design the smallest behavioral research plan.
+
+Update the relevant workbook sections, Direction Log, and Work Log. Do not
+contact anyone or collect data without explicit authorization. End with workbook
+updated, evidence gaps, risks, next work, external authorization needed, and
+next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger market intelligence
+                to test whether the initial segment and wedge are plausible.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">4</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Market evidence</p>
+                  <h3>Map alternatives, segment, and wedge</h3>
+                </div>
+                <span class="step-role">market-intelligence-analyst</span>
+              </div>
+              <p class="step-copy">
+                This step tests where the idea can win. It maps competitors and
+                manual workarounds, selects a beachhead segment, and identifies
+                a differentiated wedge without treating competition as a
+                failure.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>
+                    Market and Alternatives, Demand and Viability, Assumption
+                    Map.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Look for</span>
+                  <p>
+                    A reachable first customer segment and a credible
+                    differentiated promise.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Use next</span>
+                  <p>
+                    The highest-risk demand assumption and best test channel.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the market-intelligence prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="market-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="market-prompt">
+Act as market-intelligence-analyst for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the market-opportunity and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current idea
+brief, workbook, supplied evidence, decisions, and relevant product materials.
+
+Research direct competitors, indirect alternatives, manual workarounds, and
+non-consumption. Build a transparent bottom-up market view, identify a narrow
+beachhead segment, a credible differentiated wedge, and realistic early-user
+channels. Preserve founder business and product ideas as hypotheses or
+preferences until supported.
+
+Update Market and Alternatives, Demand and Viability, Assumption Map, Risk
+Register, Direction Log, and Work Log. Cite external claims and state limits.
+End with workbook updated, evidence gaps, risks, next work, external
+authorization needed, and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger demand-validation
+                design before deciding what to build.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">5</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Demand test</p>
+                  <h3>Plan the smallest credible proof of demand</h3>
+                </div>
+                <span class="step-role">demand-validation-designer</span>
+              </div>
+              <p class="step-copy">
+                Do not automatically run a landing page or interview. First
+                choose the least expensive test that could disprove the most
+                important assumption about value, willingness to pay, or
+                behavior change.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>
+                    Demand and Viability, Product Narrative, Authorization Log.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Look for</span>
+                  <p>
+                    A test with cohort, threshold, denominator, timebox, and
+                    failure condition.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Important</span>
+                  <p>
+                    Drafts are safe. Sending outreach or publishing a test needs
+                    authorization.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the demand-validation prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="demand-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="demand-prompt">
+Act as demand-validation-designer for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the demand-validation and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current idea
+brief, workbook, supplied evidence, and relevant decisions.
+
+Identify the highest-impact untested demand or business assumption. Design the
+smallest credible test with a target cohort, offer, channel, sample size,
+timebox, cost cap, success threshold, failure threshold, measured denominator,
+privacy considerations, and decision rule. Draft assets if useful, but do not
+send, publish, spend money, or collect data without explicit authorization.
+
+Update Demand and Viability, Product Narrative, Assumption Map, External
+Authorization Log, Risk Register, Direction Log, and Work Log. End with workbook
+updated, evidence gaps, risks, next work, external authorization needed, and
+next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>If you authorize a live test:</strong> Record its exact
+                scope in the workbook External Authorization Log, run only the
+                approved outreach or test, add actual results to Demand and
+                Viability, then rerun this role to interpret the evidence.
+              </p>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger the business-case
+                analyst to turn the evidence and constraints into an MVP
+                boundary.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">6</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Viability boundary</p>
+                  <h3>Model pricing, costs, and material risks</h3>
+                </div>
+                <span class="step-role">business-case-analyst</span>
+              </div>
+              <p class="step-copy">
+                This is not a request for a giant business plan. It sets a
+                practical boundary: who pays, what might they pay, what it costs
+                to deliver, what the founder can afford, and what risks must
+                shape the MVP.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>Demand and Viability, Delivery Design, Risk Register.</p>
+                </div>
+                <div class="step-fact">
+                  <span>Look for</span>
+                  <p>
+                    A low/base/high model and a clear scope, cost, and risk
+                    boundary.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Not a claim</span>
+                  <p>
+                    Issue spotting is not legal, tax, accounting, or investment
+                    advice.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the business-case prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="business-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="business-prompt">
+Act as business-case-analyst for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the business-case and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current idea
+brief, workbook, evidence, decisions, and relevant delivery constraints.
+
+Model a simple business model, pricing hypothesis, low/base/high revenue and
+cost scenarios, founder capacity, viability threshold, and material market,
+privacy, security, payment, vendor, and regulatory risks. Connect the model to
+the founder's intended business and identify what would invalidate it.
+
+Update Demand and Viability, Delivery Design, Risk Register, Assumption Map,
+Direction Log, and Work Log. Do not state legal or compliance conclusions. End
+with workbook updated, evidence gaps, risks, next work, external authorization
+needed, and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger the product manager
+                to make the first real MVP scope decision.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">7</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">MVP definition</p>
+                  <h3>Choose the smallest product that proves value</h3>
+                </div>
+                <span class="step-role">product-manager</span>
+              </div>
+              <p class="step-copy">
+                This is where good founder ideas become a focused build. The
+                product manager keeps ideas that serve the core outcome, makes
+                non-goals explicit, and records deferrals rather than silently
+                deleting them.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>
+                    MVP Definition, Scope Changes and Deferred Ideas,
+                    Measurement Plan.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Look for</span>
+                  <p>
+                    One primary user, core job, outcome, activation event, and
+                    journey.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Scope test</span>
+                  <p>
+                    Every capability links to founder intent, evidence, safety,
+                    or a critical assumption.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the MVP-definition prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="mvp-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="mvp-prompt">
+Act as product-manager for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the mvp-product-spec and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current idea
+brief, workbook, evidence, decisions, and relevant app materials.
+
+Turn founder intent and evidence into a focused MVP definition: one target user,
+core job, measurable outcome, activation event, primary journey, must-have
+capabilities, trust baseline, explicit non-goals, manual operations, and metrics.
+Keep useful founder ideas visible by linking them to scope or deferral rationale.
+
+Update MVP Definition, Experience Specification, Measurement Plan, Scope Changes
+and Deferred Ideas, Direction Log, and Work Log. End with workbook updated,
+evidence gaps, risks, next work, external authorization needed, and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger the UX specification
+                designer, then the brand and GTM strategist.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">8</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Experience and narrative</p>
+                  <h3>Specify how it works and how it should feel</h3>
+                </div>
+                <span class="step-role">UX + brand roles</span>
+              </div>
+              <p class="step-copy">
+                Recommended default: run UX first, then product narrative. The
+                UX role turns scope into testable flows. The brand role turns
+                the same evidence and founder direction into positioning,
+                language, and visual direction. If narrative or feasibility
+                changes the product, revisit the affected role. Neither
+                publishes anything.
+              </p>
+              <div class="step-subtasks">
+                <div class="step-subtask">
+                  <h4>8A / UX specification</h4>
+                  <p>
+                    Trigger <code>ux-specification-designer</code> to define
+                    flows, errors, permissions, accessibility, and acceptance
+                    criteria.
+                  </p>
+                </div>
+                <div class="step-subtask">
+                  <h4>8B / Product narrative</h4>
+                  <p>
+                    Trigger <code>brand-gtm-strategist</code> after UX to define
+                    positioning, voice, visual direction, and draft claims.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the UX-specification prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="ux-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="ux-prompt">
+Act as ux-specification-designer for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the mvp-product-spec and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current idea
+brief, workbook, user evidence, decisions, and relevant app materials.
+
+Translate the current MVP definition and founder interaction or visual
+preferences into concise, testable flows. Cover the primary journey, input
+validation, errors, recovery, permissions, analytics, accessibility, responsive
+behavior, and acceptance criteria without silently expanding scope.
+
+Update Experience Specification, Product Narrative, Measurement Plan, MVP
+Definition, Direction Log, and Work Log. End with workbook updated, evidence
+gaps, risks, next work, external authorization needed, and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <details class="runbook-prompt">
+                <summary>Copy the product-narrative prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="brand-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="brand-prompt">
+Act as brand-gtm-strategist for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the brand-go-to-market and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the idea brief,
+current workbook, evidence, decisions, and existing brand assets.
+
+Create positioning, message hierarchy, tone, terminology, visual direction,
+name candidates, and draft landing or pricing content rooted in founder direction
+and actual evidence. Identify proof needed for every public claim and keep all
+assets clearly marked as drafts.
+
+Update Product Narrative, Founder Intent, Market and Alternatives, Demand and
+Viability, External Authorization Log, Direction Log, and Work Log. Do not
+publish, buy a domain, or send messages without explicit authorization. End with
+workbook updated, evidence gaps, risks, next work, external authorization needed,
+and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger technical design and
+                operations planning.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">9</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Delivery design</p>
+                  <h3>Decide what is safe and practical to build</h3>
+                </div>
+                <span class="step-role">architecture + operations</span>
+              </div>
+              <p class="step-copy">
+                Recommended default: start with architecture, then add the
+                operations plan. Together they create a minimal delivery design
+                that supports the intended MVP and exposes costs, data,
+                authorization, security, backup, and deployment constraints
+                before code grows. Revisit either when product or implementation
+                learning changes.
+              </p>
+              <div class="step-subtasks">
+                <div class="step-subtask">
+                  <h4>9A / Technical design</h4>
+                  <p>
+                    Trigger <code>solution-architect</code> to define
+                    components, data, security, privacy, integrations, and cost.
+                  </p>
+                </div>
+                <div class="step-subtask">
+                  <h4>9B / Operations plan</h4>
+                  <p>
+                    Trigger <code>platform-operations-engineer</code> for
+                    environments, secrets, CI/CD, monitoring, recovery, and
+                    ownership.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the architecture prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="architecture-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="architecture-prompt">
+Act as solution-architect for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the mvp-technical-design and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current idea
+brief, workbook, evidence, decisions, and relevant app materials.
+
+Design the smallest managed architecture that meets the current MVP definition
+and preserves its intended experience. Define data classification, data model,
+authorization, integrations, secrets, environments, observability, backups,
+rollback, threat model, verification, and cost. Feed feasibility or trust
+discoveries back into the MVP definition.
+
+Update Delivery Design, Risk Register, MVP Definition, Build Traceability,
+External Authorization Log, Direction Log, and Work Log. Do not provision
+resources. End with workbook updated, evidence gaps, risks, next work, external
+authorization needed, and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <details class="runbook-prompt">
+                <summary>Copy the operations prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="operations-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="operations-prompt">
+Act as platform-operations-engineer for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the secure-mvp-delivery and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current workbook,
+architecture decisions, relevant decisions, and application configuration.
+
+Create the actionable local, preview, and production environment plan; access
+matrix; secret inventory; CI/CD, monitoring, support, backup, restore, recovery,
+deletion process, vendor ownership, and cost controls. Record what is planned,
+configured with evidence, blocked, or awaiting external authorization.
+
+Update Delivery Design, External Authorization Log, Build Traceability,
+Verification Evidence, Risk Register, Direction Log, and Work Log. Do not create
+accounts, credentials, paid resources, or production infrastructure. End with
+workbook updated, evidence gaps, risks, next work, external authorization needed,
+and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger implementation
+                against the workbook's current acceptance criteria.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">10</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Implementation</p>
+                  <h3>Build the MVP in small, traceable slices</h3>
+                </div>
+                <span class="step-role">mvp-implementation-engineer</span>
+              </div>
+              <p class="step-copy">
+                Attach or create the application codebase at
+                <code>ventures/&lt;venture-slug&gt;/app/</code> when needed. The
+                engineer maps every code change back to an MVP acceptance
+                criterion and records actual test results.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>
+                    Build Traceability, Verification Evidence, Delivery Design.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Build rule</span>
+                  <p>
+                    Implement one focused slice, test it, update the workbook,
+                    then continue.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>External boundary</span>
+                  <p>
+                    No production deployment, paid service, DNS, or payment
+                    change without authorization.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt">
+                <summary>Copy the implementation prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="implementation-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="implementation-prompt">
+Act as mvp-implementation-engineer for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the secure-mvp-delivery and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current workbook,
+relevant decisions, and the application repository instructions.
+
+Implement the next smallest in-scope MVP slice. Map each change to a workbook
+acceptance criterion. Use secure defaults, server-side authorization, input
+validation, environment-managed secrets, safe migrations, and appropriate tests.
+Record actual commands, results, deviations, known issues, and blockers.
+
+Update Build Traceability, Verification Evidence, Delivery Design, Risk Register,
+Scope Changes and Deferred Ideas, Direction Log, and Work Log. Do not make an
+external production or paid-resource change without explicit authorization. End
+with workbook updated, evidence gaps, risks, next work, external authorization
+needed, and next agent role.</pre
+                  >
+                </div>
+              </details>
+              <p class="step-next">
+                <strong>Recommended next:</strong> Trigger QA and the applicable
+                reviewers after the planned MVP slices are implemented.
+              </p>
+            </div>
+          </li>
+
+          <li class="runbook-step">
+            <div class="step-number">11</div>
+            <div>
+              <div class="step-heading">
+                <div>
+                  <p class="card-kicker">Verification and endpoint</p>
+                  <h3>
+                    Prove what works, name what does not, and finish the MVP
+                    package
+                  </h3>
+                </div>
+                <span class="step-role">qa-release-engineer</span>
+              </div>
+              <p class="step-copy">
+                QA produces the test matrix and actual verification evidence.
+                Then run the read-only reviewers that fit the venture: code
+                quality, security, research evidence, and legal/privacy issue
+                spotting. Resolve or clearly retain their findings in the
+                workbook.
+              </p>
+              <div class="step-facts">
+                <div class="step-fact">
+                  <span>Updates</span>
+                  <p>
+                    Verification Evidence, Build Traceability, Risk Register.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>MVP endpoint</span>
+                  <p>
+                    Completion checks are met, known issues are visible, and the
+                    next external action is explicit.
+                  </p>
+                </div>
+                <div class="step-fact">
+                  <span>Optional next loop</span>
+                  <p>
+                    Use analytics, launch, and support roles only for an
+                    authorized controlled release or learning cycle.
+                  </p>
+                </div>
+              </div>
+              <div class="step-subtasks">
+                <div class="step-subtask">
+                  <h4>Read-only review triggers</h4>
+                  <p>
+                    Use <code>code-quality-reviewer</code> and
+                    <code>security-risk-reviewer</code> for every substantive
+                    app build; add evidence and legal/privacy review when
+                    research or data risk warrants it.
+                  </p>
+                </div>
+                <div class="step-subtask">
+                  <h4>Only after authorization</h4>
+                  <p>
+                    Use <code>product-analytics-analyst</code>,
+                    <code>launch-growth-operator</code>, and
+                    <code>support-insights-analyst</code> for controlled beta,
+                    launch, or operations.
+                  </p>
+                </div>
+              </div>
+              <details class="runbook-prompt" open>
+                <summary>Copy the verification prompt</summary>
+                <div class="prompt-shell">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    data-copy="verification-prompt"
+                  >
+                    Copy
+                  </button>
+                  <pre id="verification-prompt">
+Act as qa-release-engineer for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the secure-mvp-delivery and
+agentic-awesome-skills skills, workflow/aas-skill-map.yaml, the current workbook,
+implemented application, relevant decisions, and application repository instructions.
+
+Build and execute a traceable test matrix for the current MVP: authentication,
+authorization, primary and failure workflows, invalid input, analytics, responsive
+behavior, accessibility, monitoring, backup or restore where applicable, rate
+limits, and dependency failures. Distinguish automated, manual, simulated, and
+unexecuted checks. Record actual results and defects only.
+
+Update Verification Evidence, Build Traceability, Risk Register, Delivery Design,
+Direction Log, and Work Log. Identify any external authorization needed for a
+controlled release separately from internal quality work. End with workbook
+updated, evidence gaps, risks, next work, external authorization needed, and
+next agent role.</pre
+                  >
+                </div>
+              </details>
+              <div class="reviewer-prompts">
+                <details class="runbook-prompt">
+                  <summary>Copy the code-review prompt</summary>
+                  <div class="prompt-shell">
+                    <button
+                      class="copy-button"
+                      type="button"
+                      data-copy="code-review-prompt"
+                    >
+                      Copy
+                    </button>
+                    <pre id="code-review-prompt">
+Act as code-quality-reviewer for venture &lt;venture-slug&gt;.
+Read AGENTS.md, the current workbook's MVP Definition, Experience Specification,
+Delivery Design, Build Traceability, Verification Evidence, the relevant app code,
+and workflow/aas-skill-map.yaml.
+
+Review the implementation against current acceptance criteria, not just local
+style. Focus on correctness, authorization, data integrity, errors, regressions,
+security, performance, observability, migration safety, rollback, accessibility,
+and missing tests. Return findings in severity order with file and line references.
+
+Do not edit, deploy, authorize release, or invent test results. If no material
+defect is found, state residual risks and untested areas.</pre
+                    >
+                  </div>
+                </details>
+                <details class="runbook-prompt">
+                  <summary>Copy the security-review prompt</summary>
+                  <div class="prompt-shell">
+                    <button
+                      class="copy-button"
+                      type="button"
+                      data-copy="security-review-prompt"
+                    >
+                      Copy
+                    </button>
+                    <pre id="security-review-prompt">
+Act as security-risk-reviewer for venture &lt;venture-slug&gt;.
+Read AGENTS.md, the current workbook's MVP Definition, Delivery Design, Build
+Traceability, Verification Evidence, relevant code or configuration, and
+workflow/aas-skill-map.yaml.
+
+Review asset classification, authentication, authorization, tenant isolation,
+input validation, secrets, logging and redaction, dependencies, sessions, rate
+limits, abuse controls, data retention, backups, incident response, third-party
+access, CI/CD, and production-change controls.
+
+Return practical findings with severity, attack or failure scenario, evidence,
+mitigation, verification method, and residual risk. Do not access secrets or
+production systems, modify code, deploy, or claim certification.</pre
+                    >
+                  </div>
+                </details>
+                <details class="runbook-prompt">
+                  <summary>Copy the evidence-audit prompt</summary>
+                  <div class="prompt-shell">
+                    <button
+                      class="copy-button"
+                      type="button"
+                      data-copy="evidence-audit-prompt"
+                    >
+                      Copy
+                    </button>
+                    <pre id="evidence-audit-prompt">
+Act as research-evidence-auditor for venture &lt;venture-slug&gt;.
+Read AGENTS.md, workflow/IDEA_TO_MVP.md, the requested workbook sections, their
+sources, and workflow/aas-skill-map.yaml. Remain read-only.
+
+Assess whether claims are sourced, current, proportionate to evidence, and clearly
+labeled as facts, inferences, or assumptions. Flag uncited figures, fabricated-
+looking quotes, misleading samples, unsupported causality, stale competitor claims,
+false precision, and conflicts between evidence and the proposed MVP direction.
+
+Return findings in severity order with workbook section references, evidence
+needed to resolve each issue, and an overall confidence rating. Do not invent
+evidence or authorize external action.</pre
+                    >
+                  </div>
+                </details>
+                <details class="runbook-prompt">
+                  <summary>
+                    Copy the legal/privacy issue-spotting prompt
+                  </summary>
+                  <div class="prompt-shell">
+                    <button
+                      class="copy-button"
+                      type="button"
+                      data-copy="legal-privacy-prompt"
+                    >
+                      Copy
+                    </button>
+                    <pre id="legal-privacy-prompt">
+Act as legal-privacy-risk-spotter for venture &lt;venture-slug&gt;.
+Read AGENTS.md, relevant workbook sections, target jurisdictions, data flows, and
+workflow/aas-skill-map.yaml. You are an issue spotter, not a lawyer.
+
+Identify likely questions involving privacy, consent, data processing, retention,
+cookies, consumer protection, payments, refunds, intellectual property, tax, AI
+disclosures, regulated data, children, healthcare, finance, and cross-border data.
+
+For each issue, state the triggering fact, potential consequence, urgency, missing
+information, practical product mitigation, and qualified review needed. Do not
+give definitive legal advice, publish policies, submit filings, or contact third parties.</pre
+                    >
+                  </div>
+                </details>
+              </div>
+              <p class="step-next">
+                <strong>Finish:</strong> Review the workbook Completion Checks.
+                You now have a tested MVP package. Continue into beta or launch
+                only if you explicitly authorize those external actions.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="start-marker" aria-label="Founder-input reminder">
+        <div class="start-marker-number">F</div>
+        <div>
+          <h2>Keep adding founder input at any point.</h2>
+          <p>
+            New product ideas, design references, constraints, or observations
+            go into the workbook's Founder Intent section. The next relevant
+            role classifies and incorporates them; you never need to restart at
+            step 1.
           </p>
         </div>
       </section>
@@ -1232,5 +2576,30 @@
         v15.4.0; the local manifest records exact selected IDs.
       </p>
     </main>
+    <span class="sr-only" id="copy-status" aria-live="polite"></span>
+    <script>
+      document.querySelectorAll("[data-copy]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const prompt = document.getElementById(button.dataset.copy);
+          const status = document.getElementById("copy-status");
+
+          if (!prompt) return;
+
+          try {
+            await navigator.clipboard.writeText(prompt.textContent.trim());
+            button.textContent = "Copied";
+            status.textContent = "Prompt copied to clipboard.";
+          } catch {
+            button.textContent = "Select text";
+            status.textContent =
+              "Clipboard access was unavailable. Select and copy the prompt text.";
+          }
+
+          window.setTimeout(() => {
+            button.textContent = "Copy";
+          }, 1800);
+        });
+      });
+    </script>
   </body>
 </html>
